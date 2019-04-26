@@ -9,11 +9,11 @@
           <el-form-item label="密码" prop="password">
             <el-input type="password" v-model="form.password"></el-input>
           </el-form-item>
-          <el-form-item align="center">
-            <el-button type="primary" @click="login">登陆</el-button>
-            <el-button type="" @click="reset">重置</el-button>
-          </el-form-item>
         </el-form>
+        <div style="width: 100%;text-align: center;margin-top: 50px;">
+          <el-button type="primary" size="small" @click="login">登陆</el-button>
+          <el-button size="small" @click="reset">取消</el-button>
+        </div>
       </div>
     </div>
 </template>
