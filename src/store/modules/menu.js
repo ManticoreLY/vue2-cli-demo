@@ -8,7 +8,12 @@ const menu = {
       },
       { index: '2', name: '疾病管理' },
       { index: '3', name: '转阴案例管理' },
-      { index: '4', name: '新闻管理' },
+      { index: '4', name: '新闻管理', children: [
+        { index: '4-1', name: '新闻管理' },
+        { index: '4-1', name: '频道栏目管理' },
+        { index: '4-1', name: '最新文章管理' },
+        { index: '4-1', name: '最热文章管理' }
+      ] },
       { index: '5', name: '首页内容管理', children: [
         { index: '5-1', name: '出国实例管理' },
         { index: '5-2', name: '新闻报道管理' },
@@ -22,9 +27,9 @@ const menu = {
       { index: '6', name: '首页页脚编辑', children: [
         { index: '6-1', name: '医诺寰球模块管理' },
         { index: '6-2', name: '联系我们管理' },
-        { index: '6-3', name: '官方微信管理' },
-        ] },
-      { index: '7', name: '关于我们' },
+        { index: '6-3', name: '官方微信管理' }
+      ] },
+      { index: '7', name: '关于我们' }
     ]
   }
 }
