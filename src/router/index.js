@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const constantRouterMap = [
-  { path: '/dashboard',component: () => import('@/views/back/dashboard') },
+  { path: '/dashboard', component: () => import('@/views/web/dashboard') },
   { path: '/login', component: () => import('@/views/back/login'), hidden: true },
   { path: '/main', component: () => import('@/views/back/main'), hidden: true }
 ]

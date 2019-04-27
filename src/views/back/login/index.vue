@@ -29,10 +29,10 @@
           },
           rules: {
             username: [
-              { required: true, trigger: 'blur', message: '请输入用户名'}
+              { required: true, trigger: 'blur', message: '请输入用户名' }
             ],
             password: [
-              { required: true, trigger: 'blur', message: '请输入密码'}
+              { required: true, trigger: 'blur', message: '请输入密码' }
             ]
           }
         }
@@ -42,6 +42,9 @@
           if (this.form.username === 'admin' && this.form.password === 'admin') {
             this.$message.success('登陆成功')
             this.$router.push('/main')
+          } else {
+            this.$message.error('用户名或密码错误！')
+            this.reset()
           }
         },
         reset() {

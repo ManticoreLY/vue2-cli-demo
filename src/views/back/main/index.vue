@@ -1,12 +1,16 @@
 <template>
     <div>
-
+        <nav-menu></nav-menu>
     </div>
 </template>
 
 <script>
+    import NavMenu from './NavMenu'
     export default {
-      name: 'index'
+      name: 'index',
+      components: {
+        NavMenu
+      }
     }
 </script>
 
