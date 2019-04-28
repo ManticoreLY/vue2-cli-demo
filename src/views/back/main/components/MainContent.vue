@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MedicineManage from '../MedicineManage'
+import MedicineManage from '../MedicineManage/index'
 export default {
     name: 'main-content',
     components: {

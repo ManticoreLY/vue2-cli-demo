@@ -6,7 +6,8 @@ Vue.use(Router)
 const constantRouterMap = [
   { path: '/dashboard', component: () => import('@/views/web/dashboard') },
   { path: '/login', component: () => import('@/views/back/login') },
-  { path: '/main', component: () => import('@/views/back/main/MedicineManage') }
+  { path: '/main/medicine', component: () => import('@/views/back/main/MedicineManage/index') },
+  { path: '/main/disease', component: () => import('@/views/back/main/MedicineManage/index') },
 ]
 
 export default new Router({
