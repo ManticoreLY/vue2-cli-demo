@@ -2,7 +2,7 @@
     <div id="login">
       <div class="login-page">
         <h2 style="width: 100%;text-align: center">登陆</h2>
-        <el-form ref="form" :model="form" label-width="80px" :rules="rules">
+        <el-form ref="form" v-bind:model="form" label-width="80px" v-bind:rules="rules">
           <el-form-item label="用户名" prop="username">
             <el-input v-model="form.username"></el-input>
           </el-form-item>

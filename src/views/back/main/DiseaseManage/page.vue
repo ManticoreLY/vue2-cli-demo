@@ -21,22 +21,22 @@
         </el-table-column>
       </el-table>
     </div>
-</template>
+</template>npm
 
 <script>
-    export default {
-      name: 'page',
-      data() {
-        return {
-          page: {
-            page: 1,
-            pageSize: 10,
-            total: null,
-          },
-          dataList: []
-        }
+  export default {
+    name: 'page',
+    data() {
+      return {
+        page: {
+          page: 1,
+          pageSize: 10,
+          total: null
+        },
+        dataList: []
       }
     }
+  }
 </script>
 
 <style scoped>

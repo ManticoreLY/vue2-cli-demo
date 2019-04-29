@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form ref="form" label-width="120px" :model="form" :rules="rules">
+    <el-form ref="form" label-width="120px" v-bind:model="form" :rules="rules">
       <el-form-item label="药品名称" prop="name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
@@ -20,6 +20,7 @@
 
 <script>
     import medicine_api from '@/api/medicine'
+
     export default {
       name: 'edit',
       data() {
@@ -31,10 +32,10 @@
           },
           rules: {
             name: [
-              { required: true, trigger: 'blur', message: '请输入药品名称'}
+              { required: true, trigger: 'blur', message: '请输入药品名称' }
             ],
             message: [
-              { required: true, trigger: 'blur', message: '请输入药品说明'}
+              { required: true, trigger: 'blur', message: '请输入药品说明' }
             ]
           }
         }

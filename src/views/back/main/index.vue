@@ -8,20 +8,20 @@
 </template>
 
 <script>
-    import NavMenu from './components/NavMenu'
-    import MainContent from './components/MainContent'
-    export default {
-      name: 'index',
-      components: {
-        NavMenu,
-        MainContent
-      },
-      data() {
-          return {
-              index: '1-1'
-          }
+  import NavMenu from './components/NavMenu'
+  import MainContent from './components/MainContent'
+  export default {
+    name: 'index',
+    components: {
+      NavMenu,
+      MainContent
+    },
+    data() {
+      return {
+        index: '1-1'
       }
     }
+  }
 </script>
 
 <style scoped>

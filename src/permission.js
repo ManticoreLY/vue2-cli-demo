@@ -5,7 +5,7 @@ import 'nprogress/nprogress.css'// progress bar style
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  if (to.path === '/back') {
+  if (to.path === '/back' || to.path === '/login') {
     next('/login')
     NProgress.done()
   } else if (to.path === '/web' || to.path === '/') {

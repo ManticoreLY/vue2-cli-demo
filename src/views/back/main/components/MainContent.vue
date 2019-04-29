@@ -7,15 +7,15 @@
 <script>
 import MedicineManage from '../MedicineManage/index'
 export default {
-    name: 'main-content',
-    components: {
-        MedicineManage
-    },
-    data() {
-        return {
+  name: 'main-content',
+  components: {
+    MedicineManage
+  },
+  data() {
+    return {
 
-        }
     }
+  }
 }
 </script>
 
