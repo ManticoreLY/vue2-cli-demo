@@ -7,6 +7,7 @@ import ElementUI from 'element-ui'
 import store from './store'
 import './permission'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'element-ui/lib/theme-chalk/display.css';
 
 Vue.use(ElementUI)
 

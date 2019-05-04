@@ -1,8 +1,6 @@
 <template>
     <div style="margin: 20px;">
-        <nav-menu :active-index="index"></nav-menu>
         <div class="page">
-           <breadcrumb/>
            <el-form :inline="true" class="demo-form-inline">
                 <el-form-item label="搜索">
                     <el-input v-model="keyword"></el-input>
@@ -31,15 +29,11 @@
 </template>
 
 <script>
-    import NavMenu from '../components/NavMenu'
-    import Breadcrumb from '../components/Breadcrumb'
     import MedicineEdit from './edit'
 
     export default {
       name: 'index',
       components: {
-        NavMenu,
-        Breadcrumb,
         MedicineEdit
       },
       data() {

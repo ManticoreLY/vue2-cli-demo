@@ -1,12 +1,12 @@
 const menu = {
   state: {
     menus: [
-      { index: '1', name: '药品管理', path: '/main', children: [
-          { index: '1-1', path: '/medicine', name: '药品管理', module: 'back/main/MedicineManage/index' },
-          { index: '1-2', path: '/rank', name: '排行榜编辑', module: 'back/main/MedicineManage/rank' }
-        ]
-      }
-      /* { index: '2', name: '疾病管理', path: '/main/disease', module: '@/views/back/main/DiseaseManage/page' },
+      { index: '1', name: '药品管理', children: [
+        { index: '1-1', path: '/main/medicine', name: '药品管理' },
+        { index: '1-2', path: '/main/rank', name: '排行榜编辑' }
+      ]
+      },
+      { index: '2', name: '疾病管理', path: '/main/disease' },
       { index: '3', name: '转阴案例管理', path: '/main/disease', module: '@/views/back/main/DiseaseManage/page' },
       { index: '4', name: '新闻管理', path: '/main/news', children: [
         { index: '4-1', name: '新闻管理', path: '', module: '@/views/back/main//page' },
@@ -29,7 +29,7 @@ const menu = {
         { index: '6-2', name: '联系我们管理', path: '', module: '', hidden: true },
         { index: '6-3', name: '官方微信管理', path: '', module: '', hidden: true }
       ] },
-      { index: '7', name: '关于我们', path: '/main/disease/', module: '@/views/back/main/DiseaseManage/page', hidden: true }*/
+      { index: '7', name: '关于我们', path: '/main/disease/', module: '@/views/back/main/DiseaseManage/page', hidden: true }
     ]
   }
 }

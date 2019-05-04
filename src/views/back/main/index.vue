@@ -1,6 +1,6 @@
 <template>
     <div style="margin: 20px;">
-        <nav-menu :active-index="index"></nav-menu>
+        <!--<nav-menu :active-index="index"></nav-menu>-->
         <div class="page">
             <router-view/>
         </div>
@@ -8,13 +8,9 @@
 </template>
 
 <script>
-  import NavMenu from './components/NavMenu'
-  import MainContent from './components/MainContent'
   export default {
     name: 'index',
     components: {
-      NavMenu,
-      MainContent
     },
     data() {
       return {
