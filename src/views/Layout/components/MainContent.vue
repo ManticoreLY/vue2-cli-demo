@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="main-content">
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
@@ -13,5 +13,5 @@
 </script>
 
 <style scoped>
-
+#main-content{position: relative;z-index: 9999}
 </style>

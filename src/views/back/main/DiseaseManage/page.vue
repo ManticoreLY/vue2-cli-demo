@@ -28,23 +28,22 @@
 </template>
 
 <script>
-
-  export default {
-    name: 'page',
-    comments: {
-    },
-    data() {
-      return {
-        page: {
-          page: 1,
-          pageSize: 10,
-          total: null
-        },
-        dataList: [],
-        index: '2'
-      }
+export default {
+  name: 'page',
+  comments: {
+  },
+  data() {
+    return {
+      page: {
+        page: 1,
+        pageSize: 10,
+        total: null
+      },
+      dataList: [],
+      index: '2'
     }
   }
+}
 </script>
 
 <style scoped>

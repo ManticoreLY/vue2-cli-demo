@@ -186,9 +186,9 @@
             { name: '更多', description: '更多', url: 'static/icon/icon-10.png' }
           ],
           activeName: 'first',
-          logo_images:[
+          logo_images: [
             '中国新闻网.jpg', '中国江苏网.jpg', '中国青年报.jpg', '今日头条.jpg', '凤凰.png', '参考消息.jpg',
-            '山东大学报.jpg', '搜狐.jpg', '腾讯.png','新浪.png', '环球.png', '网易.png', '界面.png', '搜狗搜索.png', '百度.png'
+            '山东大学报.jpg', '搜狐.jpg', '腾讯.png', '新浪.png', '环球.png', '网易.png', '界面.png', '搜狗搜索.png', '百度.png'
           ],
           logo_medias: [
             '新浪.png', '环球.png', '网易.png', '界面.png', '搜狗搜索.png', '百度.png', '第一财经.jpg', '腾讯.png'

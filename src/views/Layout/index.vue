@@ -1,11 +1,11 @@
 <template>
   <el-container style="position: relative;height: 100%; border: 1px solid #eee">
     <el-aside style="position: fixed;top: 0;left: 0;bottom: 0;width: 14%!important;background: #545c64">
-      <nav-menu></nav-menu>
+      <nav-menu :menus="$router.options.routes"></nav-menu>
     </el-aside>
     <el-container style="position: fixed;width: 86%;right: 0;top:0;bottom: 0;">
       <el-header style="text-align: right; font-size: 12px">
-        <breadcrumb></breadcrumb>
+        <breadcrumb :currentPath="$router.currentRoute.matched"></breadcrumb>
       </el-header>
       <el-main>
         <main-content></main-content>
@@ -36,7 +36,7 @@
 
 <style scoped>
   .el-header {
-    background-color: #B3C0D1;
+    background-color: #f5f5f5;
     color: #333;
     line-height: 60px;
   }
