@@ -1,0 +1,24 @@
+<template>
+  <div class="item-bar">
+    <span></span>
+    <div>{{ name }}</div>
+    <span></span>
+    <div class="description">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+  </div>
+</template>
+
+<script>
+    export default {
+      name: 'ItemBar',
+      props: {
+        name: String
+      }
+    }
+</script>
+
+<style scoped>
+  .item-bar{position:relative;width: 90%;margin: 20px 5%;}
+  .item-bar span{display: inline-block;width: 30%;height:0;border: 2.5px solid #1daca4}
+  .item-bar div{display: inline-block;width: 38%;text-align: center;font-size: 4rem}
+  .item-bar div.description{width: 100%;text-align: center;font-size: 1.5rem;color: #7f7f7f;margin: 20px;}
+</style>

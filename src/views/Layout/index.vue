@@ -21,7 +21,7 @@
 
   export default {
     name: 'index',
-    components: { NavMenu, MainContent, Breadcrumb },
+    components: { NavMenu, MainContent, Breadcrumb }
   }
 </script>
 
