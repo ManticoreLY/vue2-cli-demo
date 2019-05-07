@@ -19,6 +19,7 @@
 
 <script>
     import { mapGetters } from 'vuex'
+    import { asyncRouterMap } from '@/router'
 
     export default {
       name: 'NavMenu',
@@ -32,7 +33,9 @@
         return {}
       },
       computed: {
-        ...mapGetters(['menus'])
+        menus() {
+          return asyncRouterMap
+        }
       },
       mounted() {
         console.log(this.menus)

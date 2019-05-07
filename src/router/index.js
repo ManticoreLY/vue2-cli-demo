@@ -4,9 +4,12 @@ import Layout from '@/views/layout'
 
 Vue.use(Router)
 
-const constantRouterMap = [
+export const constantRouterMap = [
   { path: '/dashboard', component: () => import('@/views/web/dashboard') },
-  { path: '/login', component: () => import('@/views/back/login') },
+  { path: '/login', component: () => import('@/views/back/login') }
+]
+
+export const asyncRouterMap = [
   { path: '/main',
     component: Layout,
     name: '后台管理',
@@ -18,5 +21,5 @@ const constantRouterMap = [
 
 export default new Router({
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRouterMap
+  routes: constantRouterMap.concat(asyncRouterMap)
 })
