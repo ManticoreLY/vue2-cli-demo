@@ -1,12 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout'
+import Content from '@/views/web/dashboard'
 
 Vue.use(Router)
 
 export const constantRouterMap = [
-  { path: '/dashboard', component: () => import('@/views/web/dashboard') },
-  { path: '/login', component: () => import('@/views/back/login') }
+  { path: '/login', component: () => import('@/views/back/login') },
+  { path: '/',
+    name: '主页',
+    component: Content,
+    children: [
+      { path: 'dashboard', component: () => import('@/views/web/dashboard/main') },
+      { path: 'medicineInfo', component: () => import('@/views/web/MedicineInfo') }
+    ]
+  }
 ]
 
 export const asyncRouterMap = [

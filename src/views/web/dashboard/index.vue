@@ -15,42 +15,30 @@
       </div>
     </div>
     <web-header></web-header>
-    <nav-bar/>
-    <disease-item/>
-    <item-bar name="出国实例"/>
-    <example-item/>
-    <item-bar name="新闻报道"/>
-    <web-news/>
-    <item-bar name="医疗新闻资讯"/>
-    <medical-report/>
-    <item-bar name="品牌实力"/>
-    <brand/>
-    <logo-display/>
+    <router-view></router-view>
+    <web-info></web-info>
+    <footer>
+      <div class="footer">
+        <div>医诺寰宇是出国看病的领导者，国内专业赴印度治疗丙肝、乙肝的团队。印度丙肝新药<b>索非布韦</b>、达卡他韦、<b>吉二代</b>，
+          吉印度Mylan产<b>吉三代Hepbest</b>已经在印度上市，治疗所有分型丙肝。印度乙肝<b>TAF</b>新方案，副作用小价格低，
+          Mylan产已经在印度上市。肿瘤癌症方案<b>AZD9291,PD-1</b>。糖尿病新药恩格列净。白血病淋巴瘤方案<b>CAR-T</b>疗法。
+          更多资讯请访问医疗新闻。</div>
+        <div>Copyright&nbsp;&copy;&nbsp;2015-2019&nbsp;医诺寰球-青岛医诺寰球有限公司&nbsp;&nbsp;版权所有 | 鲁ICP备15022986号-1</div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
-  import ItemBar from './components/ItemBar'
   import WebHeader from './components/header'
-  import NavBar from './components/NavBar'
-  import DiseaseItem from './components/DiseaseItem'
-  import ExampleItem from './components/ExampleItem'
-  import WebNews from './components/WebNews'
-  import MedicalReport from './components/MedicalReport'
-  import brand from './components/brand'
-  import LogoDisplay from './components/LogoDisplay'
+  import WebInfo from './components/WebInfo'
+  import main from './main'
   export default {
     name: 'index',
     components: {
-      ItemBar,
       WebHeader,
-      NavBar,
-      DiseaseItem,
-      ExampleItem,
-      WebNews,
-      MedicalReport,
-      brand,
-      LogoDisplay
+      WebInfo,
+      main
     },
     data() {
       return {
@@ -73,4 +61,8 @@
   .web-title .item3{font-size: 1.125rem;color: #545454;line-height: 1.5rem;line-height: 1.5rem;}
   .web-title .item3 .item-title{display: inline-flex;position:relative;border-right:1px solid #545454;padding: 0 6px;}
   .web-title .item3 .item-title .arrow-down{position:absolute;top: 5px;right: -10px;height: 0;width: 0;border-width: 5px;border-style: solid;border-color: #545454 transparent transparent transparent}
+
+  .footer{background: #f5f5f5;border-top: 1px solid #eee;width: 90%;height: 100px;padding: 0 5%;text-align: center;font-size: .75rem;color: #545454;text-space: 5px;
+   display: flex; flex-flow: row wrap; align-content: center; align-items: center;justify-content: space-around}
+  .footer div{line-height: 28px}
 </style>
