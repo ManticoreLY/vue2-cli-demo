@@ -15,7 +15,9 @@ html, body{
   margin: 0;
   padding: 0;
   font-size: 12px;
+  background: #f5f5f5;
 }
+a{text-decoration: none;color: inherit}
 a:hover{cursor: pointer}
 p{margin: 5px auto;}
 #app {

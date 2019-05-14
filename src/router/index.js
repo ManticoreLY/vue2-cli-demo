@@ -12,7 +12,8 @@ export const constantRouterMap = [
     component: Content,
     children: [
       { path: 'dashboard', component: () => import('@/views/web/dashboard/main') },
-      { path: 'medicineInfo', component: () => import('@/views/web/MedicineInfo') }
+      { path: 'medicineInfo', component: () => import('@/views/web/MedicineInfo') },
+      { path: 'drugDB', component: () => import('@/views/web/DrugDatabase') }
     ]
   }
 ]

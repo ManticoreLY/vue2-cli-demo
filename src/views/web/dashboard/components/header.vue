@@ -19,7 +19,9 @@
     </div>
     <div class="nav-bar">
       <span><a class="el-icon-d-arrow-right">常见疾病库</a></span>
-      <span class=""><a>医药数据库</a></span>
+      <span class="">
+        <router-link :to="{ path: '/drugDB' }">医药数据库</router-link>
+      </span>
       <span class=""><a>治疗案例</a></span>
       <span class=""><a>医疗新闻</a></span>
       <span class=""><a>关于我们</a></span>
