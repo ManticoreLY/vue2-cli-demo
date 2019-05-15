@@ -13,7 +13,8 @@ export const constantRouterMap = [
     children: [
       { path: 'dashboard', component: () => import('@/views/web/dashboard/main') },
       { path: 'medicineInfo', component: () => import('@/views/web/MedicineInfo') },
-      { path: 'drugDB', component: () => import('@/views/web/DrugDatabase') }
+      { path: 'drugDB', component: () => import('@/views/web/DrugDatabase') },
+      { path: 'cases', component: () => import('@/views/web/CureCase') }
     ]
   }
 ]

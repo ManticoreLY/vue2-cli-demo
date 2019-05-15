@@ -22,7 +22,9 @@
       <span class="">
         <router-link :to="{ path: '/drugDB' }">医药数据库</router-link>
       </span>
-      <span class=""><a>治疗案例</a></span>
+      <span class="">
+        <router-link :to="{ path: '/cases' }">治疗案例</router-link>
+      </span>
       <span class=""><a>医疗新闻</a></span>
       <span class=""><a>关于我们</a></span>
     </div>
