@@ -104,7 +104,7 @@
 .category .list .item .name div:nth-child(1){height: 4rem;font-size: 1.5rem;border:none;line-height: inherit;font-weight: 600}
 .category .list .item .name div:hover{color: #1caca3;background: #efefef}
 .table{width: 90%;padding: 0 5%;min-height: 300px;background: #fff;display: inline-flex;flex-flow: row nowrap;align-items: flex-start;align-content: stretch;justify-content: space-between}
-.table>div{width: 48%;display: inline-block;min-height: inherit;border: 1px solid}
+.table>div{width: 48%;display: inline-block;min-height: inherit;}
 .display{width: 90%;padding: 20px 5%;height: auto;background: #fff;}
 .display .title{width: 100%;height: 4rem;line-height: 4rem;font-size:2rem;font-weight: 600;text-align: center}
 .display .subtitle{width: 100%;height: 4rem;line-height: 4rem;font-size:1.5rem;color:#aaa;text-align: center}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav-menu">
     <el-menu :default-active="activeIndex" class="el-menu-demo" background-color="#545c64"
              text-color="#fff"  active-text-color="#ffd04b" @select="handleSelect">
       <template v-for="item in menus" v-show="!item.hidden" >
@@ -49,5 +49,5 @@
 </script>
 
 <style scoped>
-
+.nav-menu{position: relative;width: 100%;height: 100%;margin: 0;padding: 0}
 </style>
