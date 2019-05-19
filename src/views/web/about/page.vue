@@ -47,9 +47,9 @@
 </template>
 
 <script>
-    export default {
-        name: "page"
-    }
+  export default {
+    name: 'page'
+  }
 </script>
 
 <style scoped>

@@ -47,7 +47,7 @@
 
 <script>
     export default {
-        name: "declare"
+        name: 'declare'
     }
 </script>
 
