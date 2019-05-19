@@ -15,7 +15,8 @@ export const constantRouterMap = [
       { path: 'medicineInfo', component: () => import('@/views/web/MedicineInfo') },
       { path: 'drugDB', component: () => import('@/views/web/DrugDatabase') },
       { path: 'cases', component: () => import('@/views/web/CureCase') },
-      { path: 'news', component: () => import('@/views/web/MedicalNews') }
+      { path: 'news', component: () => import('@/views/web/MedicalNews') },
+      { path: 'about', component: () => import('@/views/web/about') }
     ]
   }
 ]

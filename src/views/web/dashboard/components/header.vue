@@ -18,15 +18,25 @@
       </div>
     </div>
     <div class="nav-bar">
-      <span><a class="el-icon-d-arrow-right">常见疾病库</a></span>
+      <span style="position:relative" id="hover-icon">
+        <i class="el-icon-d-arrow-right"></i>
+        &nbsp;&nbsp;&nbsp;&nbsp;常见疾病库&nbsp;&nbsp;&nbsp;&nbsp;
+        <div id="hover-panel">
+          <hover-bar></hover-bar>
+        </div>
+      </span>
       <span class="">
         <router-link :to="{ path: '/drugDB' }">医药数据库</router-link>
       </span>
       <span class="">
         <router-link :to="{ path: '/cases' }">治疗案例</router-link>
       </span>
-      <span class=""><a>医疗新闻</a></span>
-      <span class=""><a>关于我们</a></span>
+      <span class="">
+        <router-link :to="{ path: '/news' }">医疗新闻</router-link>
+      </span>
+      <span class="">
+        <router-link :to="{ path: '/about' }">关于我们</router-link>
+      </span>
     </div>
     <div class="fix-content">
       <a><img :src="dianhua" style="height:38px;height:38px"><br/><b>咨询电话</b></a>
@@ -39,8 +49,10 @@
 </template>
 
 <script>
+  import HoverBar from './HoverBar'
   export default {
     name: 'header',
+    components: { HoverBar },
     data() {
       return {
         searchWord: '',
@@ -68,4 +80,7 @@
   .nav-bar span:nth-child(1){display: inline-block;padding: 10px 2.25rem;background: #1CACA3;color: #efefef}
   .fix-content{position: fixed;right: 2.25rem; top: 16rem;z-index: 20;display: inline-flex;flex-flow: column nowrap;font-size: 10px;color:red}
   .fix-content a{display: inline-block;margin:2px 0;padding: 5px;width:60px;height: 56px;text-align:center;background: #fff;box-shadow: 0 2px 5px 0 #444;z-index: 99}
+
+  #hover-panel{position:absolute;width: 207px;height: 450px;background: #2cbca3;top: 45px;left: 0;z-index: 100;visibility: hidden}
+  #hover-icon:hover #hover-panel{visibility: visible}
 </style>
