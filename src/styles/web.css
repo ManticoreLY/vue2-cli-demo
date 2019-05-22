@@ -14,3 +14,8 @@
 .page .content .right .words>div.word-name{width:initial;border-bottom: 1px solid #eee;height: 3rem;line-height: 3rem;font-size: 1.5rem;font-weight: 600}
 .page .content .right .words>div.word-title{width:initial;border-bottom: 1px solid #eee;height: 3rem;line-height: 3rem;font-size: 1.25rem;color: #5a5a5a;
   white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
+/*分页控件*/
+.pagination{width: initial;text-align: center;}
+.el-pagination{margin: 20px auto;text-align: center}
+.el-pagination .el-pager li.number.active{background: #1daca4;color: #fff}
+.el-pagination .el-pager li.number,.el-pagination button{background: #fff;color: #545454;border:1px solid #1daca4;margin: 0 5px;}

@@ -46,9 +46,9 @@
 </template>
 
 <script>
-    export default {
-        name: 'declare'
-    }
+  export default {
+    name: 'declare'
+  }
 </script>
 
 <style scoped>

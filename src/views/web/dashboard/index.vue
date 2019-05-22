@@ -1,13 +1,13 @@
 <template>
   <div id="web-index">
     <div class="web-title">
-      <div class="item1" style="margin-left: 5%">
+      <div class="item1" style="width: 15%;text-align: right">
         <div class="text-icon">寰球医疗最新动态<i class="arrow-right"></i></div>
       </div>
-      <div class="item2" style="width: 40%">
-        <canvas id="canvas" width="600" height="22"></canvas>
+      <div class="item2" style="width: 43%;height: 2.5rem;line-height: 2.5rem">
+        <canvas id="canvas" style="width: 100%;height: 2.25rem;"></canvas>
       </div>
-      <div class="item3" style="width: 40%">
+      <div class="item3" style="width: 40%;text-align: right">
         <span class="item-title">网站地图</span>
         <span class="item-title">医疗客服</span>
         <span class="item-title">海外医疗：400-0000-000</span>
@@ -54,7 +54,7 @@
 <style scoped>
   /*color:#1CACA3*/
   #web-index{margin: 0;padding: 0;}
-  .web-title{position: relative;width:100%;height: 2.75rem;background: #f5f5f5;border-bottom: 1px solid #eee;}
+  .web-title{position: relative;width:100%;height: 2.75rem;background: #f5f5f5;border-bottom: 1px solid #eee;display:inline-flex;flex-flow: row nowrap;align-items: center}
   .web-title .item1, .web-title .item2, .web-title .item3{display: inline-block}
   .web-title .item1 .text-icon{display: inline-block;position:relative;font-size: 1rem;font-weight: 600;color: #efefef;background: #1CACA3;color: #ececec;padding: 4px 12px;border-radius: 3px;}
   .web-title .item1 .text-icon .arrow-right{position:absolute;top:8px;right: -10px;height: 0;width: 0;border-width: 5px;border-style: solid;border-color: transparent transparent transparent #1CACA3}
