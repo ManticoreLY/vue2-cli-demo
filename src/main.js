@@ -8,6 +8,7 @@ import store from './store'
 import './permission'
 import 'element-ui/lib/theme-chalk/index.css'
 import './styles/web.css'
+import './assets/my-icon/iconfont.css' // 自定义图标库
 // import 'element-ui/lib/theme-chalk/display.css'
 
 Vue.use(ElementUI)
