@@ -13,5 +13,4 @@
 </script>
 
 <style scoped>
-#main-content{position: relative;z-index: 9999}
 </style>

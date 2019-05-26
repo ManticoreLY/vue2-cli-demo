@@ -1,6 +1,8 @@
 <template>
     <div class="nav-bar">
-      <breadcrumb :currentPath="$router.currentRoute.matched"/>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item v-for="item in $router.currentRoute.matched" :key="item" :to="item.path">{{ item.name }}</el-breadcrumb-item>
+      </el-breadcrumb>
       <div style="float:right">
         <span><i class="el-icon-s-check"></i>admin</span>
         <span><i class="el-icon-arrow-down"></i>退出</span>
@@ -19,5 +21,5 @@
 </script>
 
 <style scoped>
-.nav-bar{width: 100%;height: 4rem;line-height: 4rem;position:relative;font-size: 1.5rem;}
+.nav-bar{}
 </style>
