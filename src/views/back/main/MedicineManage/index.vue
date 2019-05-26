@@ -1,5 +1,5 @@
 <template>
-    <div style="margin: 20px;">
+    <div style="padding: 20px;">
         <div class="page">
            <el-form :inline="true" class="demo-form-inline">
                 <el-form-item label="搜索">
@@ -71,5 +71,4 @@
 </script>
 
 <style scoped>
-.page{width: 100%;margin-top: 20px;}
 </style>

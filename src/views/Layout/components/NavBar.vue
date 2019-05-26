@@ -3,23 +3,23 @@
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item v-for="item in $router.currentRoute.matched" :key="item" :to="item.path">{{ item.name }}</el-breadcrumb-item>
       </el-breadcrumb>
-      <div style="float:right">
-        <span><i class="el-icon-s-check"></i>admin</span>
-        <span><i class="el-icon-arrow-down"></i>退出</span>
+      <div>
+        <el-dropdown>
+          <el-button type="success" size="small">当前用户：admin<i class="el-icon-arrow-down el-icon--right"></i></el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>查看资料</el-dropdown-item>
+            <el-dropdown-item>退出登陆</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
     </div>
 </template>
 
 <script>
-  import Breadcrumb from './Breadcrumb'
   export default {
-    name: 'NavBar',
-    components: {
-      Breadcrumb
-    }
+    name: 'NavBar'
   }
 </script>
 
 <style scoped>
-.nav-bar{}
 </style>

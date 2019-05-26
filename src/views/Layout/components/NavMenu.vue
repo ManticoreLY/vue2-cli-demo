@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar wrapClass="scrollbar-wrapper">
+  <div id="navmenu">
     <el-menu :default-active="$route.path" class="el-menu-demo" background-color="#304156"
              text-color="#bfcbd9"
              active-text-color="#409EFF"
@@ -11,14 +11,14 @@
         <el-submenu v-else>
           <template slot="title">{{ item.name }}</template>
           <el-menu-item-group>
-            <router-link v-for="(childMenu, i) in item.children" :key="i" v-if="!childMenu.hidden" :to="{ path: item.path }">
+            <router-link v-for="childMenu in item.children" :key="childMenu" v-if="!childMenu.hidden" :to="{ path: item.path + '/' + childMenu.path }">
               <el-menu-item :index="item.path + childMenu.path">{{ childMenu.name }}</el-menu-item>
             </router-link>
           </el-menu-item-group>
         </el-submenu>
       </div>
     </el-menu>
-  </el-scrollbar>
+  </div>
 </template>
 
 <script>
@@ -60,10 +60,5 @@
 </script>
 
 <style scoped>
-  >>>.scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-  >>>.scrollbar-wrapper .el-scrollbar__view {
-    height: 100%;
-  }
+  #navmenu{overflow-x: hidden!important;}
 </style>

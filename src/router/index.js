@@ -36,7 +36,7 @@ export const asyncRouterMap = [
     component: Layout,
     name: '疾病管理',
     children: [
-      { path: 'disease', name: '疾病管理', component: () => import('@/views/back/main/DiseaseManage/page') }
+      { path: '', name: '疾病管理', component: () => import('@/views/back/main/DiseaseManage/page') }
     ]
   },
   {

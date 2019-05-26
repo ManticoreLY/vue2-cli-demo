@@ -18,7 +18,8 @@ html, body{
   background: #f5f5f5;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
+  box-sizing: content-box;
+  overflow-x: hidden;
 }
 h1,h2,h3,h4,h5,h6{margin: 10px;font-weight: 500}
 a{text-decoration: none;color: inherit}
@@ -30,6 +31,7 @@ p{margin: 5px auto;}
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
+  box-sizing: content-box;
 }
 .el-input{width: 240px}
 </style>

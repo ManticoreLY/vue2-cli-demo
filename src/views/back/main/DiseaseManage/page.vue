@@ -1,5 +1,5 @@
 <template>
-    <div style="margin: 20px;">
+    <div style="padding: 20px;">
       <!--<nav-menu :active-index="index"></nav-menu>-->
       <div class="page">
         <!--<breadcrumb/>-->
