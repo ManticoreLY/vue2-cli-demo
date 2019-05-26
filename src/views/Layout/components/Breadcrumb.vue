@@ -1,6 +1,6 @@
 <template>
   <div class="breadcrumb">
-    <el-breadcrumb separator-class="el-icon-arrow-right">
+    <el-breadcrumb style="width: 90%;margin: 15px 5%" separator-class="el-icon-arrow-right">
       <el-breadcrumb-item v-for="item in currentPath" :key="item" :to="item.path">{{ item.name }}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
@@ -21,5 +21,5 @@ export default {
 </script>
 
 <style scoped>
- .breadcrumb{font-size: 1.5rem;color:#fff;font-weight: 600;display: inline-block;}
+ .breadcrumb{width: 100%;height: 46px;line-height: 46px;background: #fff; font-size: 1.25rem;}
 </style>

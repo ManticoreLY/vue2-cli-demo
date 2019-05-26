@@ -20,15 +20,33 @@ export const constantRouterMap = [
     ]
   }
 ]
-
+const prefix = '/main'
 export const asyncRouterMap = [
-  { path: '/main',
+  {
+    path: prefix + '/medicine',
     component: Layout,
-    name: '后台管理',
+    name: '药品管理',
     children: [
-      { path: 'medicine', name: '药品管理', component: () => import('@/views/back/main/MedicineManage') },
+      { path: '', name: '药品管理', component: () => import('@/views/back/main/MedicineManage') },
+      { path: 'rank', name: '排行榜管理', component: () => import('@/views/back/main/MedicineManage/rank') }
+    ]
+  },
+  {
+    path: prefix + '/disease',
+    component: Layout,
+    name: '疾病管理',
+    children: [
       { path: 'disease', name: '疾病管理', component: () => import('@/views/back/main/DiseaseManage/page') }
-    ] }
+    ]
+  },
+  {
+    path: prefix + '/cases',
+    component: Layout,
+    name: '转阴案例管理',
+    children: [
+      { path: '', name: '转阴案例管理', component: () => import('@/views/back/main/CasesManage') }
+    ]
+  }
 ]
 
 export default new Router({

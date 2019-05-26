@@ -1,20 +1,24 @@
 <template>
-  <div class="nav-menu">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" background-color="#545c64"
-             text-color="#fff"  active-text-color="#ffd04b" @select="handleSelect">
-      <template v-for="item in menus" v-show="!item.hidden" >
-        <el-menu-item v-if="!item.children" :index="item.index"><router-link :to="{ path: item.path }">{{ item.name }}</router-link></el-menu-item>
-        <el-submenu v-else-if="item.children" :index="item.index">
+  <el-scrollbar wrapClass="scrollbar-wrapper">
+    <el-menu :default-active="$route.path" class="el-menu-demo" background-color="#304156"
+             text-color="#bfcbd9"
+             active-text-color="#409EFF"
+             @select="handleSelect">
+      <div v-for="item in menus" v-show="!item.hidden">
+        <router-link v-if="hasOneChildrenOption(item)" :to="{ path: item.path }">
+          <el-menu-item :index="item.path + item.children[0].path">{{ item.name }}</el-menu-item>
+        </router-link>
+        <el-submenu v-else>
           <template slot="title">{{ item.name }}</template>
           <el-menu-item-group>
-            <router-link :to="{ path: item.path }">
-              <el-menu-item v-for="(childMenu, i) in item.children" :key="i" :index="childMenu.index">{{ childMenu.name }}</el-menu-item>
+            <router-link v-for="(childMenu, i) in item.children" :key="i" v-if="!childMenu.hidden" :to="{ path: item.path }">
+              <el-menu-item :index="item.path + childMenu.path">{{ childMenu.name }}</el-menu-item>
             </router-link>
           </el-menu-item-group>
         </el-submenu>
-      </template>
+      </div>
     </el-menu>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -41,6 +45,13 @@
         console.log(this.menus)
       },
       methods: {
+        hasOneChildrenOption(item) {
+          const children = item.children.filter(item => !item.hidden)
+          if (children.length === 1) {
+            return true
+          }
+          return false
+        },
         handleSelect(opt) {
           console.log(opt)
         }
@@ -49,5 +60,10 @@
 </script>
 
 <style scoped>
-.nav-menu{position: relative;width: 100%;height: 100%;margin: 0;padding: 0}
+  >>>.scrollbar-wrapper {
+    overflow-x: hidden !important;
+  }
+  >>>.scrollbar-wrapper .el-scrollbar__view {
+    height: 100%;
+  }
 </style>
