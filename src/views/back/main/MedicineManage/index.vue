@@ -2,7 +2,7 @@
     <div style="padding: 20px;">
         <div class="page">
            <el-form :inline="true" class="demo-form-inline">
-                <el-form-item label="搜索">
+                <el-form-item label="搜索:">
                     <el-input v-model="keyword" placeholder="输入药品名称查询"></el-input>
                 </el-form-item>
                 <el-form-item>

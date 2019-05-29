@@ -10,6 +10,7 @@
         <page v-show="items[0].show"></page>
         <declear v-show="items[1].show"></declear>
         <credential v-show="items[2].show"></credential>
+        <join-us v-show="items[3].show"></join-us>
       </div>
     </div>
 </template>
@@ -18,9 +19,10 @@
   import page from './page'
   import declear from './declare'
   import Credential from './Credential'
+  import JoinUs from './JoinUs'
   export default {
     name: 'index',
-    components: { page, declear, Credential },
+    components: { page, declear, Credential, JoinUs },
     data() {
       return {
         items: [

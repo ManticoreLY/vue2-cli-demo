@@ -5,7 +5,7 @@
       </el-breadcrumb>
       <div>
         <el-dropdown>
-          <el-button type="success" size="small">当前用户：admin<i class="el-icon-arrow-down el-icon--right"></i></el-button>
+          <el-button type="success" size="small"><i class="my-icon-user" style="font-size: 1.25rem">&nbsp;&nbsp;admin</i><i class="el-icon-arrow-down"></i></el-button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>查看资料</el-dropdown-item>
             <el-dropdown-item>退出登陆</el-dropdown-item>
@@ -23,9 +23,13 @@
         return this.$router.currentRoute
       }
     },
-    watch: {
-      $router() {
-        console.log(this.$router)
+    mounted() {
+      this.getCurrentRouter(this.$router)
+    },
+    methods: {
+      getCurrentRouter(router) {
+        debugger
+        console.log(router)
       }
     }
   }
