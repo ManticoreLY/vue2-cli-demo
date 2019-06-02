@@ -1,5 +1,5 @@
 <template>
-    <div style="padding: 20px;">
+    <div>
         <div class="page">
            <el-form :inline="true" class="demo-form-inline">
                 <el-form-item label="搜索:">
@@ -10,7 +10,7 @@
                     <el-button type="success" @click="addSeries">添加药品</el-button>
                 </el-form-item>
             </el-form>
-            <el-table :data="medicines" :default-sort="{ prop: 'index', type: 'ascending' }">
+            <el-table :data="dataList" :default-sort="{ prop: 'index', type: 'ascending' }">
                 <el-table-column label="药品名称" prop="name"></el-table-column>
                 <el-table-column label="排序" prop="indexNo"></el-table-column>
                 <el-table-column label="药品说明" prop="message"></el-table-column>
@@ -42,7 +42,7 @@
           formTitle: '',
           index: '1-1',
           keyword: '',
-          medicines: [
+          dataList: [
             { id: 1, name: '阿司匹林', indexNo: 1, message: '常用消炎药' }
           ]
         }

@@ -20,10 +20,17 @@ export const constantRouterMap = [
     ]
   }
 ]
-const prefix = '/main'
 export const asyncRouterMap = [
   {
-    path: prefix + '/medicine',
+    path: '/user',
+    component: Layout,
+    name: '用户管理',
+    children: [
+      { path: '', name: '用户管理', component: () => import('@/views/back/main/user/index') }
+    ]
+  },
+  {
+    path: '/medicine',
     component: Layout,
     name: '药品管理',
     children: [
@@ -32,7 +39,7 @@ export const asyncRouterMap = [
     ]
   },
   {
-    path: prefix + '/disease',
+    path: '/disease',
     component: Layout,
     name: '疾病管理',
     children: [
@@ -40,9 +47,9 @@ export const asyncRouterMap = [
     ]
   },
   {
-    path: prefix + '/cases',
+    path: '/case',
     component: Layout,
-    name: '转阴案例管理',
+    name: '案例管理',
     children: [
       { path: '', name: '转阴案例管理', component: () => import('@/views/back/main/CasesManage') }
     ]

@@ -1,7 +1,7 @@
 <template>
     <div class="nav-bar">
       <el-breadcrumb separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item v-for="item in currentPath.matched" :key="item" :to="item.path">{{ item.name }}</el-breadcrumb-item>
+        <el-breadcrumb-item v-for="item in $route.matched" :key="item" :to="item.path">{{ item.name }}</el-breadcrumb-item>
       </el-breadcrumb>
       <div>
         <el-dropdown>
@@ -17,21 +17,7 @@
 
 <script>
   export default {
-    name: 'NavBar',
-    computed: {
-      currentPath() {
-        return this.$router.currentRoute
-      }
-    },
-    mounted() {
-      this.getCurrentRouter(this.$router)
-    },
-    methods: {
-      getCurrentRouter(router) {
-        debugger
-        console.log(router)
-      }
-    }
+    name: 'NavBar'
   }
 </script>
 

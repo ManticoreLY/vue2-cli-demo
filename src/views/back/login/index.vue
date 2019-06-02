@@ -41,7 +41,7 @@
         login() {
           if (this.form.username === 'admin' && this.form.password === 'admin') {
             this.$message.success('登陆成功')
-            this.$router.push('/main/medicine')
+            this.$router.push('/user')
           } else {
             this.$message.error('用户名或密码错误！')
             this.reset()
