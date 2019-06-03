@@ -32,7 +32,7 @@
 </template>
 
 <script>
-  import CaseApi from '@/api/cases'
+  import ArticlesApi from '@/api/articles'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -49,7 +49,7 @@
     },
     methods: {
       search() {
-        CaseApi.queryPage(this.name).then(data => {
+        ArticlesApi.queryPage(this.name).then(data => {
           console.log(data)
           this.tableList = data.obj
         }).catch(err => {
@@ -69,7 +69,7 @@
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          CaseApi.delete(id).then(data => {
+          ArticlesApi.delete(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
           }).catch(err => {
