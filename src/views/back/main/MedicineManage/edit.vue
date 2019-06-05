@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form ref="form" label-width="120px" v-bind:model="form" :rules="rules">
+    <el-form ref="form" label-width="120px" :model="form" :rules="rules">
       <el-form-item label="序号" prop="indexNo">
         <el-input-number v-model="form.indexNo" style="width: 240px;"></el-input-number>
       </el-form-item>
