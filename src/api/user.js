@@ -2,17 +2,17 @@ import crud from './crud'
 import request from './json-request'
 
 export default {
-  ...crud('api/user'),
+  ...crud('api/users'),
   login(user) {
     return request({
-      url: 'api/user/login',
+      url: 'login',
       method: 'POST',
       data: user
     })
   },
   logout(user) {
     return request({
-      url: 'api/user/logout',
+      url: 'logout',
       method: 'POST',
       data: user
     })

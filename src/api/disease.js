@@ -2,5 +2,5 @@
 import crud from './crud'
 
 export default {
-  ...crud('api/disease')
+  ...crud('api/disease/disease')
 }

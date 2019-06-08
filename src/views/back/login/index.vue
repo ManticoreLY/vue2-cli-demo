@@ -3,8 +3,8 @@
       <div class="login-page">
         <h2 style="width: 100%;text-align: center">登陆</h2>
         <el-form ref="form" :model="form" label-width="80px" :rules="rules">
-          <el-form-item label="用户名" prop="username">
-            <el-input v-model="form.username"></el-input>
+          <el-form-item label="用户名" prop="signName">
+            <el-input v-model="form.signName"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
             <el-input type="password" v-model="form.password" @keyup.enter.native="login"></el-input>
@@ -19,18 +19,19 @@
 </template>
 
 <script>
-  import UserApi from '@/api/user'
+  import store from '@/store'
+  // import UserApi from '@/api/user'
   // import DiseaseApi from '@/api/disease'
   export default {
     name: 'index',
     data() {
       return {
         form: {
-          username: '',
+          signName: '',
           password: ''
         },
         rules: {
-          username: [
+          signName: [
             { required: true, trigger: 'blur', message: '请输入用户名' }
           ],
           password: [
@@ -50,10 +51,9 @@
         }
       },
       toLogin() {
-        debugger
-        if (this.form.username && this.form.password) {
-          UserApi.getEntity(1).then(data => {
-            console.log(data)
+        if (this.form.signName && this.form.password) {
+          store.dispatch('login', this.form).then(() => {
+            this.$router.push('/user')
           }).catch(err => {
             console.log(err)
           })

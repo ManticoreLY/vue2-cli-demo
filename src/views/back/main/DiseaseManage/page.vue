@@ -23,6 +23,9 @@
           </el-table-column>
         </el-table>
       </div>
+      <el-pagination
+        background>
+      </el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
       </el-dialog>
@@ -40,10 +43,14 @@ export default {
   },
   data() {
     return {
-      page: {
-        page: 1,
-        pageSize: 10,
-        total: null
+      query: {
+        pageObj: {
+          current: 1,
+          size: 10
+        },
+        likeCondition: {
+          name: ''
+        }
       },
       name: '',
       tableList: [
@@ -55,15 +62,15 @@ export default {
     }
   },
   mounted() {
-    console.log()
+    this.search()
   },
   methods: {
     search() {
-      DiseaseApi.queryPage(this.name).then(data => {
-        console.log(data)
-        this.tableList = data.obj
+      DiseaseApi.queryPage(this.query).then(data => {
+        this.tableList = data.obj.records
       }).catch(err => {
         console.log(err)
+        this.$message.warning(err.msg)
       })
     },
     addNew() {
@@ -90,6 +97,7 @@ export default {
     },
     handleFormClose() {
       this.editFormVisible = false
+      this.search()
     }
   }
 }

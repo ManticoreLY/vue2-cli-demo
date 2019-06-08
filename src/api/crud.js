@@ -4,9 +4,9 @@ export default (baseUrl) => {
   return {
     queryPage(page) {
       return request({
-        url: baseUrl,
-        method: 'GET',
-        params: page
+        url: `${baseUrl}/page`,
+        method: 'POST',
+        data: page
       })
     },
     getEntity(id) {

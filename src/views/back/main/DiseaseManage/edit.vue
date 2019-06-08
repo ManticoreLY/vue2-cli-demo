@@ -1,10 +1,9 @@
 <template>
     <div>
       <el-form ref="form" :model="disease" label-width="120px" :rules="rules">
-        <el-form-item label="病症分类:" prop="type">
+        <el-form-item label="疾病分类:" prop="type">
           <el-select v-model="disease.type">
             <el-option v-for="opt in types" :key="opt" :value="opt.value" :label="opt.name"></el-option>
-            &nbsp;&nbsp;&nbsp;
           </el-select>
           <el-popover placement="bottom" width="400" trigger="click">
             <el-form ref="typeForm" label-width="80px">

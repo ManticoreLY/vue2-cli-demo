@@ -15,8 +15,8 @@ const user = {
     login({ commit }, user) {
       return new Promise((resolve, reject) => {
         UserApi.login(user).then(data => {
-          commit('SET_TOKEN', data.token)
-          setToken(data.token)
+          commit('SET_TOKEN', data.obj)
+          setToken(data.obj)
           resolve()
         }, err => {
           console.log(err)

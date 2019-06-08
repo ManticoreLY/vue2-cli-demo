@@ -1,19 +1,21 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
-// import store from '@/store'
+import store from '@/store'
+import { getToken } from '@/utils/auth'
 
 // create an axios instance
-const baseURL = 'http://112.74.180.226/'
+const baseURL = 'http://112.74.180.226:8888/yinuo/'
 const service = axios.create({
   baseURL, // process.env.BASE_API, // api的base_url
   timeout: 5000, // request timeout
   // 请求头信息
-  headers: { 'X-Requested-With': 'XMLHttpRequest' },
+  // headers: { 'X-Requested-With': 'XMLHttpRequest' },
+  headers: { 'Accept': '*' },
   // 返回数据类型
   responseType: 'json', // default
   // `withCredentials` indicates whether or not cross-site Access-Control requests
   // should be made using credentials
-  withCredentials: true, // default
+  withCredentials: false, // default
 
   transformRequest: [function(data) {
     // 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的Qs（这个模块在安装axios的时候就已经安装  了，不需要另外安装）
@@ -25,12 +27,15 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(config => {
   // Do something before request is sent
-  config.headers['Content-Type'] = 'application/json'
+  if (store.getters.token) {
+    config.headers['X-Token'] = getToken()
+  }
+  config.headers['Content-Type'] = 'application/json;charset=UTF-8'
   return config
 }, error => {
   // Do something with request error
   console.log(error) // for debug
-  Promise.reject(error)
+  return Promise.reject(error)
 })
 
 // respone interceptor
