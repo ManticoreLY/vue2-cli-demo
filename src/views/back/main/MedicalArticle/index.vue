@@ -25,6 +25,12 @@
           </template>
         </el-table-column>
       </el-table>
+      <el-pagination style="margin-top: 20px"
+                     background
+                     :page-size="page.size"
+                     :current-page="page.current"
+                     :total="page.total"
+                     layout="total, prev, pager, next"></el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
       </el-dialog>
@@ -41,6 +47,16 @@
     },
     data() {
       return {
+        query: {
+          pageObj: {
+            current: 1,
+            size: 10
+          },
+          likeCondition: {
+            name: ''
+          }
+        },
+        page: {},
         name: '',
         tableList: [],
         formTitle: [],
@@ -50,7 +66,7 @@
     methods: {
       search() {
         ArticlesApi.queryPage(this.name).then(data => {
-          console.log(data)
+          this.page = Object.assign(this.page, data.obj)
           this.tableList = data.obj
         }).catch(err => {
           console.log(err)

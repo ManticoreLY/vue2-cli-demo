@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import NewsApi from '@/api/news'
   export default {
     name: 'edit',
     data() {
@@ -26,10 +27,39 @@
           title: '',
           content: '',
           author: ''
-        }
+        },
+        isUpdate: false
       }
     },
-    methods: {}
+    methods: {
+      editForm(entity) {
+        this.isUpdate = true
+        this.medicalNews = Object.assign(this.medicalNews, entity)
+      },
+      saveForm() {
+        this.$refs['form'].validate(valid => {
+          if (valid) {
+            if (this.isUpdate) {
+              NewsApi.update(this.medicalNews).then(data => {
+                this.$message.warning('修改成功！')
+              }).catch(err => {
+                console.log(err)
+              })
+            } else {
+              NewsApi.save(this.medicalNews).then(data => {
+                this.$message.warning('添加成功！')
+              }).catch(err => {
+                console.log(err)
+              })
+            }
+          }
+        })
+      },
+      closeForm() {
+        this.$refs['form'].resetFields()
+        this.$emit('close')
+      }
+    }
   }
 </script>
 

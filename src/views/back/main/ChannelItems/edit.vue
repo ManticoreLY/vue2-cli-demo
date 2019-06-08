@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import ChannelApi from '@/api/channel'
   export default {
     name: 'edit',
     data() {
@@ -27,16 +28,36 @@
           title: '',
           news: [],
           articles: []
-        }
+        },
+        isUpdate: false
       }
     },
     methods: {
       editForm(entity) {
+        this.isUpdate = true
         this.channelItem = Object.assign(this.channelItem, entity)
       },
       saveForm() {
+        this.$refs['form'].validate(valid => {
+          if (valid) {
+            if (this.isUpdate) {
+              ChannelApi.update(this.channelItem).then(data => {
+                this.$message.warning('修改成功！')
+              }).catch(err => {
+                console.log(err)
+              })
+            } else {
+              ChannelApi.save(this.channelItem).then(data => {
+                this.$message.warning('添加成功！')
+              }).catch(err => {
+                console.log(err)
+              })
+            }
+          }
+        })
       },
       closeForm() {
+        this.$refs['form'].resetFields()
         this.$emit('close')
       }
     }

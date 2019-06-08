@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
+import router from '@/router'
 import { getToken } from '@/utils/auth'
 
 // create an axios instance
@@ -10,7 +11,7 @@ const service = axios.create({
   timeout: 5000, // request timeout
   // 请求头信息
   // headers: { 'X-Requested-With': 'XMLHttpRequest' },
-  headers: { 'Accept': '*' },
+  // headers: { 'Accept': '*' },
   // 返回数据类型
   responseType: 'json', // default
   // `withCredentials` indicates whether or not cross-site Access-Control requests
@@ -35,7 +36,7 @@ service.interceptors.request.use(config => {
 }, error => {
   // Do something with request error
   console.log(error) // for debug
-  return Promise.reject(error)
+  return Promise.reject(new Error(error.message || 'Error'))
 })
 
 // respone interceptor
@@ -44,10 +45,10 @@ service.interceptors.response.use(
     const data = response.data
     /* if (data.code === 401 || data.code === 503) {
       // 需要重新登录
-      Alert('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {
+      Alert('TOKEN已过期，可以取消继续留在该页面，或者重新登录', '确定登出', {
         type: 'warning',
         callback: action => {
-          store.dispatch('FedLogOut').then(() => {
+          store.dispatch('LogOut').then(() => {
             location.reload()// 为了重新实例化vue-router对象 避免bug
           })
         }
@@ -60,7 +61,7 @@ service.interceptors.response.use(
       if (data.message) {
         Message({
           message: data.message,
-          type: 'error',
+          type: 'warning',
           duration: 5 * 1000
         })
       }
@@ -96,11 +97,21 @@ service.interceptors.response.use(
   //     }
   error => {
     console.log('err' + error)// for debug
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 5 * 1000
-    })
+    if (error.response.status === 401 || error.response.status === 503) {
+      // 需要重新登录
+      Message({
+        message: 'TOKEN已过期,请重新登录',
+        type: 'warning',
+        duration: 5 * 1000
+      })
+      router.push({ path: '/login' })
+    } else {
+      Message({
+        message: error.message,
+        type: 'error',
+        duration: 5 * 1000
+      })
+    }
     return Promise.reject(error)
   })
 

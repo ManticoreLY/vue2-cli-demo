@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import CaseApi from '@/api/cases'
   export default {
     name: 'edit',
     data() {
@@ -22,10 +23,39 @@
         curedCase: {
           title: '',
           content: ''
-        }
+        },
+        isUpdate: false
       }
     },
-    methods: {}
+    methods: {
+      editForm(entity) {
+        this.curedCase = Object.assign(this.curedCase, entity)
+        this.isUpdate = true
+      },
+      saveForm() {
+        this.$refs['form'].validate(valid => {
+          if (valid) {
+            if (this.isUpdate) {
+              CaseApi.update(this.curedCase).then(() => {
+                this.$message.success('修改成功！')
+              }).catch(err => {
+                console.log(err)
+              })
+            } else {
+              CaseApi.save(this.curedCase).then(() => {
+                this.$message.success('添加成功！')
+              }).catch(err => {
+                console.log(err)
+              })
+            }
+          }
+        })
+      },
+      closeForm() {
+        this.$refs['form'].resetFields()
+        this.$emit('close')
+      }
+    }
   }
 </script>
 

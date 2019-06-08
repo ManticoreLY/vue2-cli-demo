@@ -23,9 +23,12 @@
           </el-table-column>
         </el-table>
       </div>
-      <el-pagination
-        background>
-      </el-pagination>
+      <el-pagination style="margin-top: 20px"
+                     background
+                     :page-size="page.size"
+                     :current-page="page.current"
+                     :total="page.total"
+                     layout="total, prev, pager, next"></el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
       </el-dialog>
@@ -52,6 +55,7 @@ export default {
           name: ''
         }
       },
+      page: {},
       name: '',
       tableList: [
         { id: 1, name: '乙肝', instruction: '' }
@@ -67,6 +71,7 @@ export default {
   methods: {
     search() {
       DiseaseApi.queryPage(this.query).then(data => {
+        this.page = Object.assign(this.page, data.obj)
         this.tableList = data.obj.records
       }).catch(err => {
         console.log(err)

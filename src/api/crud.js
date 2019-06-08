@@ -4,7 +4,7 @@ export default (baseUrl) => {
   return {
     queryPage(page) {
       return request({
-        url: `${baseUrl}/page`,
+        url: baseUrl + '/page',
         method: 'POST',
         data: page
       })

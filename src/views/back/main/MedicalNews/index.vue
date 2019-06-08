@@ -25,6 +25,12 @@
           </template>
         </el-table-column>
       </el-table>
+      <el-pagination background style="margin-top: 20px;"
+                     :current-page="page.current"
+                     :page-size="page.size"
+                     :total="page.total"
+                     layout="total, prev, pager, next">
+      </el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
       </el-dialog>
@@ -41,16 +47,29 @@
     },
     data() {
       return {
+        query: {
+          pageObj: {
+            current: 1,
+            size: 10
+          },
+          likeCondition: {
+            name: ''
+          }
+        },
+        page: {},
         name: '',
         tableList: [],
         formTitle: [],
         editFormVisible: false
       }
     },
+    mounted() {
+      this.search()
+    },
     methods: {
       search() {
-        NewsApi.queryPage(this.name).then(data => {
-          console.log(data)
+        NewsApi.queryPage(this.query).then(data => {
+          this.page = Object.assign(this.page, data.obj)
           this.tableList = data.obj
         }).catch(err => {
           console.log(err)
@@ -69,7 +88,7 @@
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          NewsApi.delete(id).then(data => {
+          NewsApi.remove(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
           }).catch(err => {
@@ -80,6 +99,7 @@
       },
       handleFormClose() {
         this.editFormVisible = false
+        this.search()
       }
     }
   }

@@ -5,11 +5,11 @@
           <el-input v-model="query.likeCondition.username"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="search">查询</el-button>
+          <el-button type="primary" @click="initPage">查询</el-button>
           <el-button type="success" @click="addNew">添加用户</el-button>
         </el-form-item>
       </el-form>
-      <el-table :data="pageData.records">
+      <el-table :data="page.records">
         <el-table-column label="ID" prop="id"></el-table-column>
         <el-table-column label="名称" prop="username"></el-table-column>
         <el-table-column label="帐号" prop="signName"></el-table-column>
@@ -26,10 +26,12 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
+      <el-pagination style="margin-top: 20px;"
         background
-        :page-size="pageData.size"
-        :current-page="pageData.current">
+        :page-size="page.size"
+        :current-page="page.current"
+        :total="page.total" :page-count="page.pages"
+        layout="prev, pager, next">
       </el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible" width="50%">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
@@ -56,7 +58,7 @@
             username: ''
           }
         },
-        pageData: {},
+        page: {},
         name: '',
         formTitle: '',
         tableData: [
@@ -66,21 +68,18 @@
         editFormVisible: false
       }
     },
-    created() {
+    mounted() {
       this.initPage()
     },
     methods: {
       initPage() {
-        this.search()
-      },
-      search() {
-        if (this.query) {
-          UserApi.queryPage(this.query).then(data => {
-            this.pageData = Object.assign(this.pageData, data.obj)
-          }).catch(err => {
-            console.log(err)
-          })
-        }
+        const _this = this
+        UserApi.queryPage(_this.query).then(data => {
+          _this.page = Object.assign({}, data.obj)
+        }).catch(err => {
+          console.log(err)
+          this.$message.error(err.msg)
+        })
       },
       addNew() {
         this.formTitle = '添加'
@@ -124,4 +123,5 @@
 </script>
 
 <style scoped>
+
 </style>

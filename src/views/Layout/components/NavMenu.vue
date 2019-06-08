@@ -35,9 +35,6 @@
           return asyncRouterMap
         }
       },
-      mounted() {
-        console.log(this.menus)
-      },
       methods: {
         hasOneChildrenOption(item) {
           const children = item.children.filter(item => !item.hidden)
@@ -52,9 +49,6 @@
           } else {
             return path
           }
-        },
-        handleSelect(opt) {
-          console.log(opt)
         }
       }
     }
