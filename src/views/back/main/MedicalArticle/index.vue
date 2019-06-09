@@ -12,12 +12,15 @@
       <el-table :data="tableList">
         <el-table-column type="expand">
           <template slot-scope="scope">
-            <div></div>
           </template>
         </el-table-column>
-        <el-table-column label="标题" prop="title"></el-table-column>
+        <el-table-column label="标题" prop="name"></el-table-column>
+        <el-table-column label="频道栏目" :formatter="channel_formatter">
+        </el-table-column>
         <el-table-column label="内容" prop="content"></el-table-column>
         <el-table-column label="时间" prop="updatedDt"></el-table-column>
+        <el-table-column label="作者" prop="author"></el-table-column>
+        <el-table-column label="来源" prop="source"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button type="warning" @click="toEdit(scope.row)">编辑</el-button>
@@ -39,6 +42,7 @@
 
 <script>
   import ArticlesApi from '@/api/articles'
+  import ChannelApi from '@/api/channel'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -92,6 +96,13 @@
             console.log(err)
             this.$message.warning('操作失败')
           })
+        })
+      },
+      async channel_formatter(row) {
+        await ChannelApi.getEntity(row.channelId).then(data => {
+          return data.obj.name
+        }).catch(err => {
+          console.log(err)
         })
       },
       handleFormClose() {
