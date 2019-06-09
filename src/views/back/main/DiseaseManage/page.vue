@@ -12,6 +12,11 @@
         </el-form>
         <el-table :data="tableList">
           <el-table-column label="名称" prop="name"></el-table-column>
+          <el-table-column label="所属分类">
+            <template slot-scope="scope">
+              {{ scope.row.types === '0' ? '常见传染病、慢性病' : '癌症、肿瘤' }}
+            </template>
+          </el-table-column>
           <el-table-column label="症状说明" prop="instruction"></el-table-column>
           <el-table-column label="药物治疗" prop=""></el-table-column>
           <el-table-column label="说明"></el-table-column>
@@ -86,7 +91,7 @@ export default {
       this.formTitle = '编辑'
       this.editFormVisible = true
       this.$nextTick(() => {
-        this.refs['editForm'].editForm(entity)
+        this.$refs['editForm'].editForm(entity)
       })
     },
     toDelete(id) {

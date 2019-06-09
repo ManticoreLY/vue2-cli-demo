@@ -83,7 +83,7 @@
         this.formTitle = '编辑'
         this.editFormVisible = true
         this.$nextTick(() => {
-          this.refs['editForm'].editForm(entity)
+          this.$refs['editForm'].editForm(entity)
         })
       },
       toDelete(id) {

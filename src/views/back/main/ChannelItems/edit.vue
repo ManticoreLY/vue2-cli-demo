@@ -1,14 +1,8 @@
 <template>
     <div>
-      <el-form ref="form" :model="channelItem" label-width="120px">
-        <el-form-item label="名称">
-          <el-input v-model="channelItem.title"></el-input>
-        </el-form-item>
-        <el-form-item label="选择新闻">
-          <el-select v-model="channelItem.news"></el-select>
-        </el-form-item>
-        <el-form-item label="选择文章">
-          <el-select v-model="channelItem.articles"></el-select>
+      <el-form ref="form" :model="channelItem" label-width="120px" :rules="rules">
+        <el-form-item label="名称" prop="name">
+          <el-input v-model="channelItem.name"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="saveForm">保存</el-button>
@@ -25,11 +19,14 @@
     data() {
       return {
         channelItem: {
-          title: '',
-          news: [],
-          articles: []
+          name: ''
         },
-        isUpdate: false
+        isUpdate: false,
+        rules: {
+          name: [
+            { required: true, trigger: 'blur', message: '请填写频道名称' }
+          ]
+        }
       }
     },
     methods: {
@@ -43,12 +40,14 @@
             if (this.isUpdate) {
               ChannelApi.update(this.channelItem).then(data => {
                 this.$message.warning('修改成功！')
+                this.closeForm()
               }).catch(err => {
                 console.log(err)
               })
             } else {
               ChannelApi.save(this.channelItem).then(data => {
                 this.$message.warning('添加成功！')
+                this.closeForm()
               }).catch(err => {
                 console.log(err)
               })

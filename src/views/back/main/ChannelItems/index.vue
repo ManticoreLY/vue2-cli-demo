@@ -70,7 +70,7 @@
       search() {
         NewsApi.queryPage(this.query).then(data => {
           this.page = Object.assign(this.page, data.obj)
-          this.tableList = data.obj
+          this.tableList = data.obj.records
         }).catch(err => {
           console.log(err)
         })
@@ -83,7 +83,7 @@
         this.formTitle = '编辑'
         this.editFormVisible = true
         this.$nextTick(() => {
-          this.refs['editForm'].editForm(entity)
+          this.$refs['editForm'].editForm(entity)
         })
       },
       toDelete(id) {
@@ -99,6 +99,7 @@
       },
       handleFormClose() {
         this.editFormVisible = false
+        this.search()
       }
     }
   }

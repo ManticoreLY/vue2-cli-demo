@@ -11,9 +11,6 @@
       </el-form>
       <el-table :data="tableList">
         <el-table-column type="expand">
-          <template slot-scope="scope">
-            <div></div>
-          </template>
         </el-table-column>
         <el-table-column label="标题" prop="title"></el-table-column>
         <el-table-column label="内容" prop="content"></el-table-column>
@@ -70,7 +67,7 @@
       search() {
         NewsApi.queryPage(this.query).then(data => {
           this.page = Object.assign(this.page, data.obj)
-          this.tableList = data.obj
+          this.tableList = data.obj.records
         }).catch(err => {
           console.log(err)
         })
@@ -83,7 +80,7 @@
         this.formTitle = '编辑'
         this.editFormVisible = true
         this.$nextTick(() => {
-          this.refs['editForm'].editForm(entity)
+          this.$refs['editForm'].editForm(entity)
         })
       },
       toDelete(id) {
