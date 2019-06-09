@@ -65,8 +65,8 @@
             content: '抚州H先生，男性，47周岁，2018-08-01检测HCV-RNA为4.30x106IU/ml（图1），经咨询康安途后使用Mylan产吉三代治疗12周后，于2018-12-01复查高灵敏度丙肝RNA阴性（图2）'
           }
         ],
-        latest_words: ['西达本胺能延缓乳腺癌内分泌治疗', '吉西他滨与奥沙利铂辅助治疗胆管', '病毒性丙肝发展到肝癌需要多久？', '阿格列汀治疗糖尿病患者的疗效怎',
-          '糖尿病药曲格列汀治疗时要注意哪', '仑伐替尼瑞戈非尼是治疗原发肝癌', '晚期肺癌患者一线用药是先选择AZ', '饭后血糖超20的患者除了吃曲格列']
+        latest_words: ['西达本胺能延缓乳腺癌内分泌治疗..', '吉西他滨与奥沙利铂辅助治疗胆管..', '病毒性丙肝发展到肝癌需要多久？', '阿格列汀治疗糖尿病患者的疗效怎',
+          '糖尿病药曲格列汀治疗时要注意哪', '仑伐替尼瑞戈非尼是治疗原发肝癌..', '晚期肺癌患者一线用药是先选择AZ..', '饭后血糖超20的患者除了吃曲格列']
       }
     }
   }
@@ -90,6 +90,6 @@
   .content .right{width: 23%;}
   .content .right .words{width: 100%;min-height: 200px;border: 1px solid #eee;margin-bottom: 20px;padding:15px;}
   .content .right .words>div.word-name{width:initial;border-bottom: 1px solid #eee;height: 4rem;line-height: 4rem;font-size: 1.5rem;font-weight: 600}
-  .content .right .words>div.word-title{width:initial;border-bottom: 1px solid #eee;height: 3rem;line-height: 3rem;font-size: 1.25rem;font-weight: 600;color: #5a5a5a;
+  .content .right .words>div.word-title{width:initial;border-bottom: 1px solid #eee;height: 3rem;line-height: 3rem;font-size: 1.25rem;color: #5a5a5a;
       white-space: nowrap;overflow: hidden;text-overflow: ellipsis}
 </style>
