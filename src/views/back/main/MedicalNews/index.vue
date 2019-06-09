@@ -11,9 +11,6 @@
       </el-form>
       <el-table :data="tableList">
         <el-table-column type="expand">
-          <template slot-scope="scope">
-            <div></div>
-          </template>
         </el-table-column>
         <el-table-column label="标题" prop="title"></el-table-column>
         <el-table-column label="内容" prop="content"></el-table-column>
@@ -38,7 +35,7 @@
 </template>
 
 <script>
-  import CaseApi from '@/api/cases'
+  import NewsApi from '@/api/news'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -68,7 +65,7 @@
     },
     methods: {
       search() {
-        CaseApi.queryPage(this.query).then(data => {
+        NewsApi.queryPage(this.query).then(data => {
           this.page = Object.assign(this.page, data.obj)
           this.tableList = data.obj.records
         }).catch(err => {
@@ -88,7 +85,7 @@
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          CaseApi.remove(id).then(data => {
+          NewsApi.remove(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
           }).catch(err => {
@@ -99,6 +96,7 @@
       },
       handleFormClose() {
         this.editFormVisible = false
+        this.search()
       }
     }
   }

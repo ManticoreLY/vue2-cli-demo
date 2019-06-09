@@ -25,12 +25,12 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination background style="margin-top: 20px;"
-                     :current-page="page.current"
+      <el-pagination style="margin-top: 20px"
+                     background
                      :page-size="page.size"
+                     :current-page="page.current"
                      :total="page.total"
-                     layout="total, prev, pager, next">
-      </el-pagination>
+                     layout="total, prev, pager, next"></el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
       </el-dialog>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import CaseApi from '@/api/cases'
+  import ArticlesApi from '@/api/articles'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -63,14 +63,11 @@
         editFormVisible: false
       }
     },
-    mounted() {
-      this.search()
-    },
     methods: {
       search() {
-        CaseApi.queryPage(this.query).then(data => {
+        ArticlesApi.queryPage(this.name).then(data => {
           this.page = Object.assign(this.page, data.obj)
-          this.tableList = data.obj.records
+          this.tableList = data.obj
         }).catch(err => {
           console.log(err)
         })
@@ -83,12 +80,12 @@
         this.formTitle = '编辑'
         this.editFormVisible = true
         this.$nextTick(() => {
-          this.$refs['editForm'].editForm(entity)
+          this.refs['editForm'].editForm(entity)
         })
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          CaseApi.remove(id).then(data => {
+          ArticlesApi.delete(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
           }).catch(err => {

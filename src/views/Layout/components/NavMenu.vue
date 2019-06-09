@@ -1,24 +1,24 @@
 <template>
-  <el-scrollbar wrapClass="scrollbar-wrapper">
+  <div id="navmenu">
     <el-menu :default-active="$route.path" class="el-menu-demo" background-color="#304156"
              text-color="#bfcbd9"
              active-text-color="#409EFF"
              @select="handleSelect">
-      <div v-for="item in menus" v-show="!item.hidden">
-        <router-link v-if="hasOneChildrenOption(item)" :to="{ path: item.path }">
-          <el-menu-item :index="item.path + item.children[0].path">{{ item.name }}</el-menu-item>
+      <div v-for="(item, index) in menus" :key="index" v-show="!item.hidden">
+        <router-link v-if="hasOneChildrenOption(item)" :to="{ path: pathResolve(item.path, item.children[0].path)}">
+          <el-menu-item :index="pathResolve(item.path, item.children[0].path)">{{ item.name }}</el-menu-item>
         </router-link>
         <el-submenu v-else>
           <template slot="title">{{ item.name }}</template>
           <el-menu-item-group>
-            <router-link v-for="(childMenu, i) in item.children" :key="i" v-if="!childMenu.hidden" :to="{ path: item.path }">
-              <el-menu-item :index="item.path + childMenu.path">{{ childMenu.name }}</el-menu-item>
+            <router-link v-for="childMenu in item.children" :key="childMenu" v-if="!childMenu.hidden" :to="{ path: pathResolve(item.path, childMenu.path) }">
+              <el-menu-item :index="pathResolve(item.path, childMenu.path)">{{ childMenu.name }}</el-menu-item>
             </router-link>
           </el-menu-item-group>
         </el-submenu>
       </div>
     </el-menu>
-  </el-scrollbar>
+  </div>
 </template>
 
 <script>
@@ -27,12 +27,6 @@
 
     export default {
       name: 'NavMenu',
-      props: {
-        activeIndex: {
-          type: String,
-          default: '1'
-        }
-      },
       data() {
         return {}
       },
@@ -40,9 +34,6 @@
         menus() {
           return asyncRouterMap
         }
-      },
-      mounted() {
-        console.log(this.menus)
       },
       methods: {
         hasOneChildrenOption(item) {
@@ -52,18 +43,17 @@
           }
           return false
         },
-        handleSelect(opt) {
-          console.log(opt)
+        pathResolve(path, childPath) {
+          if (childPath) {
+            return path + '/' + childPath
+          } else {
+            return path
+          }
         }
       }
     }
 </script>
 
 <style scoped>
-  >>>.scrollbar-wrapper {
-    overflow-x: hidden !important;
-  }
-  >>>.scrollbar-wrapper .el-scrollbar__view {
-    height: 100%;
-  }
+  #navmenu{overflow-x: hidden!important;}
 </style>
