@@ -10,14 +10,8 @@
         </el-form-item>
       </el-form>
       <el-table :data="tableList">
-        <el-table-column type="expand">
-          <template slot-scope="scope">
-            <div></div>
-          </template>
-        </el-table-column>
-        <el-table-column label="标题" prop="title"></el-table-column>
-        <el-table-column label="内容" prop="content"></el-table-column>
-        <el-table-column label="时间" prop="updatedDt"></el-table-column>
+        <el-table-column label="名称" prop="name"></el-table-column>
+        <el-table-column label="更新时间" prop="updatedDt"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button type="warning" @click="toEdit(scope.row)">编辑</el-button>
@@ -29,6 +23,8 @@
                      :current-page="page.current"
                      :page-size="page.size"
                      :total="page.total"
+                     @current-change="handlePageChange"
+                     @size-change="handleSizeChange"
                      layout="total, prev, pager, next">
       </el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
@@ -38,7 +34,7 @@
 </template>
 
 <script>
-  import NewsApi from '@/api/news'
+  import ChannelApi from '@/api/channel'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -68,7 +64,7 @@
     },
     methods: {
       search() {
-        NewsApi.queryPage(this.query).then(data => {
+        ChannelApi.queryPage(this.query).then(data => {
           this.page = Object.assign(this.page, data.obj)
           this.tableList = data.obj.records
         }).catch(err => {
@@ -88,7 +84,7 @@
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          NewsApi.remove(id).then(data => {
+          ChannelApi.remove(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
           }).catch(err => {
