@@ -10,15 +10,15 @@
 <script>
   export default{
     name: 'QuillEditer',
-    data(){
+    data() {
       return {
-        content:null,
-        editorOption:{
+        content: null,
+        editorOption: {
           debug: 'info',
           placeholder: '请输入内容...',
           theme: 'snow',
           modules: {
-            toolbar:[
+            toolbar: [
               ['bold', 'italic', 'underline', 'strike'], // toggled buttons
               ['link', 'image']
             ]
@@ -26,12 +26,12 @@
         }
       }
     },
-    methods:{
-      onEditorBlur(){//失去焦点事件
+    methods: {
+      onEditorBlur() { // 失去焦点事件
       },
-      onEditorFocus(){//获得焦点事件
+      onEditorFocus() { // 获得焦点事件
       },
-      onEditorChange(){//内容改变事件
+      onEditorChange() { // 内容改变事件
         this.$emit('getContent', this.content)
       }
     }

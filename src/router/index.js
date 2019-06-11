@@ -26,6 +26,7 @@ export const asyncRouterMap = [
     component: Layout,
     name: '首页配置',
     children: [
+      { path: 'NavBanner', name: '导航配置', component: () => import('@/views/back/main/DashboardSetting/NavBanner') },
       { path: 'brand', name: '品牌实力', component: () => import('@/views/back/main/DashboardSetting/brand') },
       { path: 'footer', name: '合作品牌', component: () => import('@/views/back/main/DashboardSetting/footer') },
       { path: 'friendLink', name: '友情链接', component: () => import('@/views/back/main/DashboardSetting/friendLink') },
