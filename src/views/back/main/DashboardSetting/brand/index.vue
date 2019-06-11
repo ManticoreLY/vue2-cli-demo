@@ -12,15 +12,12 @@
       <el-table :data="tableList">
         <el-table-column type="expand">
           <template slot-scope="scope">
+            <label>图标:</label>
+            <el-image :src="scope.row.icon" style="width: 300px;"/>
           </template>
         </el-table-column>
-        <el-table-column label="标题" prop="name"></el-table-column>
-        <el-table-column label="频道栏目" :formatter="channel_formatter">
-        </el-table-column>
-        <el-table-column label="内容" prop="content"></el-table-column>
-        <el-table-column label="时间" prop="updatedDt"></el-table-column>
-        <el-table-column label="作者" prop="author"></el-table-column>
-        <el-table-column label="来源" prop="source"></el-table-column>
+        <el-table-column label="名称" prop="title"></el-table-column>
+        <el-table-column label="文本内容" prop="content"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button type="warning" @click="toEdit(scope.row)">编辑</el-button>
@@ -28,12 +25,14 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination style="margin-top: 20px"
-                     background
-                     :page-size="page.size"
+      <el-pagination background style="margin-top: 20px;"
                      :current-page="page.current"
+                     :page-size="page.size"
                      :total="page.total"
-                     layout="total, prev, pager, next"></el-pagination>
+                     @current-change="handlePageChange"
+                     @size-change="handleSizeChange"
+                     layout="total, prev, pager, next">
+      </el-pagination>
       <el-dialog :title="formTitle" :visible.sync="editFormVisible">
         <edit-form ref="editForm" @close="handleFormClose"></edit-form>
       </el-dialog>
@@ -41,8 +40,7 @@
 </template>
 
 <script>
-  import ArticlesApi from '@/api/articles'
-  import ChannelApi from '@/api/channel'
+  import BrandApi from '@/api/HomePage/brand'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -67,11 +65,14 @@
         editFormVisible: false
       }
     },
+    mounted() {
+      this.search()
+    },
     methods: {
       search() {
-        ArticlesApi.queryPage(this.query).then(data => {
+        BrandApi.queryPage(this.query).then(data => {
           this.page = Object.assign(this.page, data.obj)
-          this.tableList = data.obj
+          this.tableList = data.obj.records
         }).catch(err => {
           console.log(err)
         })
@@ -84,12 +85,12 @@
         this.formTitle = '编辑'
         this.editFormVisible = true
         this.$nextTick(() => {
-          this.refs['editForm'].editForm(entity)
+          this.$refs['editForm'].editForm(entity)
         })
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          ArticlesApi.delete(id).then(data => {
+          BrandApi.remove(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
           }).catch(err => {
@@ -98,15 +99,9 @@
           })
         })
       },
-      async channel_formatter(row) {
-        await ChannelApi.getEntity(row.channelId).then(data => {
-          return data.obj.name
-        }).catch(err => {
-          console.log(err)
-        })
-      },
       handleFormClose() {
         this.editFormVisible = false
+        this.search()
       }
     }
   }

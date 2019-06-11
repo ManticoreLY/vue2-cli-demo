@@ -13,6 +13,15 @@ import './assets/my-icon/iconfont.css' // 自定义图标库
 
 Vue.use(ElementUI)
 
+import VueQuillEditor from 'vue-quill-editor'
+// require styles 引入样式
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+Vue.prototype.$Quill = VueQuillEditor
+
+Vue.use(VueQuillEditor)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

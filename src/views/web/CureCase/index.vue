@@ -21,7 +21,15 @@
               <div class="info">{{item.content}}...<a style="color:red">【详情】</a></div>
             </div>
           </div>
-          <div class="pagination">分页控件(待完成)</div>
+          <div class="pagination">
+            <el-pagination
+              small
+              prev-text="上一页"
+              next-text="下一页"
+              layout="prev, pager, next"
+              :total="150">
+            </el-pagination>
+          </div>
         </div>
         <div class="right">
           <div class="words">
@@ -81,7 +89,6 @@
   .content .main .main-title{width: 90%;height: 4rem;line-height: 4rem;padding: 5px 5%;border-bottom: 1px solid #eee;font-size: 1.5rem;font-weight: 600}
   .content .main .main-case{width: initial;padding:10px;border-bottom: 1px dotted #eee;min-height: 150px;
     display: inline-flex;flex-flow: row nowrap; align-items: flex-start;align-content: stretch;justify-content: space-between}
-  .content .main .pagination{width: initial;text-align: center;min-height: 5rem}
   .content .main .main-case .img{width: 25%;}
   .content .main .main-case .cont{width: 70%;}
   .content .main .main-case .cont .title{position: relative;height: 4rem;line-height: 4rem;font-size: 1.5rem;font-weight: 600;}

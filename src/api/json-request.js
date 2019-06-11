@@ -3,11 +3,11 @@ import { Message } from 'element-ui'
 import store from '@/store'
 import router from '@/router'
 import { getToken } from '@/utils/auth'
+import Constant from '@/utils/constant'
 
 // create an axios instance
-const baseURL = 'http://112.74.180.226:8888/yinuo/'
 const service = axios.create({
-  baseURL, // process.env.BASE_API, // api的base_url
+  baseURL: Constant.ServerUrl, // process.env.BASE_API, // api的base_url
   timeout: 5000, // request timeout
   // 请求头信息
   // headers: { 'X-Requested-With': 'XMLHttpRequest' },

@@ -22,6 +22,17 @@ export const constantRouterMap = [
 ]
 export const asyncRouterMap = [
   {
+    path: '/homePage',
+    component: Layout,
+    name: '首页配置',
+    children: [
+      { path: 'brand', name: '品牌实力', component: () => import('@/views/back/main/DashboardSetting/brand') },
+      { path: 'footer', name: '合作品牌', component: () => import('@/views/back/main/DashboardSetting/footer') },
+      { path: 'friendLink', name: '友情链接', component: () => import('@/views/back/main/DashboardSetting/friendLink') },
+      { path: 'publish', name: '官方发布', component: () => import('@/views/back/main/DashboardSetting/publish') }
+    ]
+  },
+  {
     path: '/user',
     component: Layout,
     name: '用户管理',
@@ -54,14 +65,14 @@ export const asyncRouterMap = [
       { path: '', name: '转阴案例管理', component: () => import('@/views/back/main/CasesManage') }
     ]
   },
-  {
+  /* {
     path: '/medicalNews',
     component: Layout,
     name: '新闻管理',
     children: [
       { path: '', name: '医疗新闻管理', component: () => import('@/views/back/main/MedicalNews') }
     ]
-  },
+  },*/
   {
     path: '/medicalArticle',
     component: Layout,

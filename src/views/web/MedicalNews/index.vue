@@ -22,6 +22,15 @@
             </div>
           </div>
         </div>
+        <div class="pagination">
+          <el-pagination
+            small
+            prev-text="上一页"
+            next-text="下一页"
+            layout="prev, pager, next"
+            :total="150">
+          </el-pagination>
+        </div>
       </div>
       <div class="right">
         <div class="words">

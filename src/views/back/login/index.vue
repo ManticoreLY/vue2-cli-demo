@@ -7,7 +7,7 @@
             <el-input v-model="form.signName"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="form.password" @keyup.enter.native="login"></el-input>
+            <el-input type="password" v-model="form.password" @keyup.enter.native="toLogin"></el-input>
           </el-form-item>
         </el-form>
         <div style="width: 100%;text-align: center;margin-top: 50px;">
@@ -41,15 +41,6 @@
       }
     },
     methods: {
-      login() {
-        if (this.form.username === 'admin' && this.form.password === 'admin') {
-          this.$message.success('登陆成功')
-          this.$router.push('/user')
-        } else {
-          this.$message.error('用户名或密码错误！')
-          this.reset()
-        }
-      },
       toLogin() {
         if (this.form.signName && this.form.password) {
           store.dispatch('login', this.form).then(() => {
