@@ -5,10 +5,10 @@
           <el-input v-model="medicalNews.title"></el-input>
         </el-form-item>
         <el-form-item label="内容">
-          <el-input v-model="medicalNews.content" type="textarea" :col="3" max-length="500"></el-input>
+          <quill-editer :value="medicalNews.content"></quill-editer>
         </el-form-item>
         <el-form-item label="图片上传">
-          <el-upload></el-upload>
+          <FileUploader :http-request="fileUploadRequest" :limit="7"></FileUploader>
         </el-form-item>
         <el-form-item label="作者">
           <el-input v-model="medicalNews.author"></el-input>
@@ -19,14 +19,22 @@
 
 <script>
   import NewsApi from '@/api/news'
+  import { uploadFile } from '@/utils/ali-upload'
+  import FileUploader from '@/components/FileUploader'
+  import QuillEditer from '@/components/QuillEditer'
   export default {
     name: 'edit',
+    components: {
+      FileUploader,
+      QuillEditer
+    },
     data() {
       return {
         medicalNews: {
           title: '',
           content: '',
-          author: ''
+          author: '',
+          imgUrl: ''
         },
         isUpdate: false
       }
@@ -54,6 +62,18 @@
             }
           }
         })
+      },
+      fileUploadRequest(opt) {
+        uploadFile(
+          opt.file,
+          res => {
+            this.medicalNews.imgUrl = res.url
+            opt.onSuccess(res)
+          },
+          err => {
+            console.log(err)
+          }
+        )
       },
       closeForm() {
         this.$refs['form'].resetFields()

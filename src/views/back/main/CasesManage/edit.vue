@@ -8,7 +8,7 @@
           <el-input v-model="curedCase.content" type="textarea" :col="3" max-length="500"></el-input>
         </el-form-item>
         <el-form-item label="图片上传">
-          <el-upload></el-upload>
+          <FileUploader :httpRequest="fileUploadRequest" :limit="3"></FileUploader>
         </el-form-item>
       </el-form>
     </div>
@@ -16,13 +16,21 @@
 
 <script>
   import CaseApi from '@/api/cases'
+  // import { getToken } from '@/utils/auth'
+  import { uploadFile } from '@/utils/ali-upload'
+  import FileUploader from '@/components/FileUploader'
+
   export default {
     name: 'edit',
+    components: {
+      FileUploader
+    },
     data() {
       return {
         curedCase: {
           title: '',
-          content: ''
+          content: '',
+          imgUrl: ''
         },
         isUpdate: false
       }
@@ -54,6 +62,17 @@
       closeForm() {
         this.$refs['form'].resetFields()
         this.$emit('close')
+      },
+      fileUploadRequest(option) {
+        uploadFile(
+          option.file,
+          res => {
+            this.curedCase.imgUrl = res.url
+            option.onSuccess(res)
+          },
+          err => {
+            console.log(err)
+          })
       }
     }
   }
