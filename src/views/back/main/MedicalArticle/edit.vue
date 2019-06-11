@@ -8,7 +8,7 @@
         <quill-editer @getContent="getEditerContent"></quill-editer>
       </el-form-item>
       <el-form-item label="图片上传">
-        <FileUploader :http-request="fileUploadRequest" :limit="7"></FileUploader>
+        <FileUploader :http-request="fileUploadRequest" :on-remove="handleRemove" :limit="7"></FileUploader>
       </el-form-item>
       <el-form-item label="作者">
         <el-input v-model="medicalArticle.author"></el-input>
@@ -34,7 +34,7 @@
           title: '',
           content: '',
           author: '',
-          imgUrl: ''
+          imgUrl: []
         },
         isUpdate: false
       }
@@ -68,15 +68,19 @@
       },
       fileUploadRequest(opt) {
         uploadFile(
-        opt.file,
-        res => {
-          this.medicalArticle.imgUrl = res.url
-          opt.onSuccess(res)
-        },
-        err => {
-          console.log(err)
-        }
+          opt.file,
+          res => {
+            this.medicalArticle.imgUrl = res.url
+            opt.onSuccess(res)
+          },
+          err => {
+            console.log(err)
+          }
         )
+      },
+      handleRemove(file) {
+        const index = this.medicalArticle.imgUrl.findIndex(url => url === file.response.url)
+        this.medicalArticle.imgUrl.splice(index, 1)
       },
       closeForm() {
         this.$refs['form'].resetFields()
