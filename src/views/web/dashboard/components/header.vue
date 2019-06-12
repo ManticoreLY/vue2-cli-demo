@@ -2,10 +2,10 @@
   <div>
     <div class="web-header">
       <div class="web-logo" style="margin-left:5%;width: 13%">
-        <img src="static/img/医诺寰球横版logo.png" style="height: 45px;width: 100%"/>
+        <img src="static/img/医诺寰球横版logo.png" style="height: auto;width: 100%"/>
       </div>
       <div class="search-frame" style="width: 50%">
-        <el-input v-model="searchWord" class="search-bar">
+        <el-input v-model="searchWord" class="search-bar" placeholder="请输入疾病或药品名,例如乙肝 吉三代">
           <i slot="prefix" class="el-input__icon el-icon-search"></i>
           <el-button slot="append">医疗搜索</el-button>
         </el-input>

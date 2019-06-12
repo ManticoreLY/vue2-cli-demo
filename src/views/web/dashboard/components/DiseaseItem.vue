@@ -6,7 +6,7 @@
         <a v-for="item in disease_icons" :key="item">
           <div style="width: 80px;text-align: center"><img :src="item.url" style="height: 60px;width: 60px;"></div>
           <div style="width: 150px;display: inline-block;text-align: center">
-            <span style="display:inline-block;font-size:1.75rem;padding: 5px;border-bottom: 1px solid mediumspringgreen">{{ item.name }}</span><br/>
+            <span style="display:inline-block;font-size:1.75rem;padding: 5px;border-bottom: 1px solid #1caca4">{{ item.name }}</span><br/>
             <span style="display:inline-block;font-size: 1.25rem;padding: 4px;color: #7f7f7f">{{ item.description }}</span>
           </div>
         </a>
@@ -38,7 +38,7 @@
 </script>
 
 <style scoped>
-  .web-items{width: 90%;height:225px;padding: 0 5%;position:relative;display:flex;flex-flow: row nowrap;align-items: flex-start}
+  .web-items{width: 100%;height:225px;position:relative;display:flex;flex-flow: row nowrap;align-items: flex-start}
   .web-items .item-name{display:inline-block;height:220px;width: 80px;display: inline-flex;align-items: center;text-align: center;background: #1CACA3;color:#efefef;font-size: 2.4rem;border-radius: 4px;word-wrap: break-word}
   .web-items .items .child{display: inline-block;margin-left: 15px;}
   .web-items .items .child>a{display: inline-block;border-right: 1px solid #eee;height: 100px;width: 19%;display: inline-flex;align-items: center;justify-content: flex-start;margin-bottom: 10px;text-align: center}

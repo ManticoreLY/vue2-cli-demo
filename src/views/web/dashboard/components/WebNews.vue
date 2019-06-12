@@ -18,7 +18,7 @@
 </script>
 
 <style scoped>
-  .web-news{width: 90%;margin: 0 5%;height: auto;display: flex;flex-flow:row wrap;justify-content: space-around}
+  .web-news{width: 100%;height: auto;display: flex;flex-flow:row wrap;justify-content: space-around}
   .web-news .news-item{position:relative;display: inline-block;width: 48%;margin-bottom: 20px;}
   .web-news .news-item>div:nth-child(1){display: inline-block;height:145px;width: 220px;}
   .web-news .news-item>div:nth-child(2){display: inline-block;height:145px;width: 340px;}
