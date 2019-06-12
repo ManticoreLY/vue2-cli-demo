@@ -15,14 +15,7 @@
 </template>
 
 <script>
-  import ItemBar from './components/ItemBar'
-  import NavBar from './components/NavBar'
-  import DiseaseItem from './components/DiseaseItem'
-  import ExampleItem from './components/ExampleItem'
-  import WebNews from './components/WebNews'
-  import MedicalReport from './components/MedicalReport'
-  import brand from './components/brand'
-  import LogoDisplay from './components/LogoDisplay'
+  import { ItemBar, NavBar, DiseaseItem, ExampleItem, WebNews, MedicalReport, brand, LogoDisplay } from './components'
   export default {
     name: 'main',
     components: {

@@ -5,7 +5,7 @@
       <div style="margin-left: 10px;">
         <p class="title" style="font-size: 2rem;height: 30px;">{{item.title}}</p>
         <p class="date" style="font-size:1.75rem;color: #7f7f7f;height: 28px">{{item.createdDt}}</p>
-        <p class="content" style="font-size:1.75rem;color:#7f7f7f;height: 80px;text-indent:3rem;">{{item.abstractText}}</p>
+        <p class="content" style="font-size:1.75rem;color:#7f7f7f;height: 80px;text-indent:3rem;overflow: hidden">{{item.abstractText}}</p>
       </div>
     </div>
   </div>

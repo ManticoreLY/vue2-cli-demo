@@ -16,11 +16,11 @@
       </div>
     </div>
     <div class="web-content">
-      <web-header></web-header>
+      <web-header/>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
-      <web-info></web-info>
+      <web-info/>
     </div>
     <footer>
       <div class="footer">
@@ -35,15 +35,12 @@
 </template>
 
 <script>
-  import WebHeader from './components/header'
-  import WebInfo from './components/WebInfo'
-  import main from './main'
+  import { WebHeader, WebInfo } from './components'
   export default {
     name: 'index',
     components: {
       WebHeader,
-      WebInfo,
-      main
+      WebInfo
     },
     data() {
       return {
