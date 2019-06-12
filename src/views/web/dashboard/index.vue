@@ -1,13 +1,13 @@
 <template>
   <div id="web-index">
     <div class="web-title">
-      <div class="item1" style="width: 15%;text-align: right">
+      <div class="item1" style="width: 180px;text-align: right">
         <div class="text-icon">寰球医疗最新动态<i class="arrow-right"></i></div>
       </div>
-      <div class="item2" style="width: 43%;height: 2.5rem;line-height: 2.5rem">
+      <div class="item2" style="width: 450px;height: 2.5rem;line-height: 2.5rem">
         <canvas id="canvas" style="width: 100%;height: 2.25rem;"></canvas>
       </div>
-      <div class="item3" style="width: 40%;text-align: right">
+      <div class="item3" style="width: 720px;text-align: right">
         <router-link v-show="$route.fullPath !== '/dashboard'" to="/dashboard" class="item-title"><i class="my-icon-home" style="color: #1daca4;font-size: 1.2rem">&nbsp;医诺寰球首页</i></router-link>
         <a class="item-title">网站地图</a>
         <a class="item-title">医疗客服</a>
@@ -15,13 +15,14 @@
         <a class="item-title" style="border: none">邮箱：xxxx@yinuohuanqiu.com</a>
       </div>
     </div>
+    <web-header/>
+    <nav-bar v-if="$route.fullPath === '/dashboard'"/>
     <div class="web-content">
-      <web-header/>
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
-      <web-info/>
     </div>
+    <web-info/>
     <footer>
       <div class="footer">
         <div>医诺寰宇是出国看病的领导者，国内专业赴印度治疗丙肝、乙肝的团队。印度丙肝新药<b>索非布韦</b>、达卡他韦、<b>吉二代</b>，
@@ -35,12 +36,13 @@
 </template>
 
 <script>
-  import { WebHeader, WebInfo } from './components'
+  import { WebHeader, WebInfo, NavBar } from './components'
   export default {
     name: 'index',
     components: {
       WebHeader,
-      WebInfo
+      WebInfo,
+      NavBar
     },
     data() {
       return {
@@ -56,8 +58,8 @@
 <style scoped>
   /*color:#1CACA3*/
   #web-index{margin: 0;padding: 0;}
-  .web-title{position: relative;width:100%;height: 2.75rem;background: #f5f5f5;border-bottom: 1px solid #eee;display:inline-flex;flex-flow: row nowrap;align-items: center}
-  .web-content{position: relative;width: 76%; margin: 0 12%;}
+  .web-title{position: relative;width:80%;padding: 0 10%;height: 2.75rem;background: #f5f5f5;border-bottom: 1px solid #eee;display:inline-flex;flex-flow: row nowrap;align-items: center}
+  .web-content{position: relative;width: 80%; margin: 0 10%;}
   .web-title .item1, .web-title .item2, .web-title .item3{display: inline-block}
   .web-title .item1 .text-icon{display: inline-block;position:relative;font-size: 1rem;font-weight: 600;color: #efefef;background: #1CACA3;color: #ececec;padding: 4px 12px;border-radius: 3px;}
   .web-title .item1 .text-icon .arrow-right{position:absolute;top:8px;right: -10px;height: 0;width: 0;border-width: 5px;border-style: solid;border-color: transparent transparent transparent #1CACA3}

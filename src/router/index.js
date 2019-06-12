@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Content from '@/views/web/dashboard'
+import Search from '@/views/web/other'
 import yinuo from './yinuo'
 
 Vue.use(Router)
@@ -19,6 +20,14 @@ export const asyncRouterMap = [
       { path: 'cases', component: () => import('@/views/web/CureCase') },
       { path: 'news', component: () => import('@/views/web/MedicalNews') },
       { path: 'about', component: () => import('@/views/web/about') }
+    ]
+  },
+  {
+    path: '/search',
+    name: '搜索',
+    component: Search,
+    children: [
+      { path: '', component: () => import('@/views/web/other/SearchPage') }
     ]
   }
 ]

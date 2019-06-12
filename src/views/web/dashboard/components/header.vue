@@ -69,7 +69,7 @@
 </script>
 
 <style scoped>
-  .web-header{width: 100%;height: 140px;display: flex;flex-flow:row nowrap;justify-content: space-around;align-items: center;align-content: center}
+  .web-header{width: 80%;padding: 0 10%;height: 140px;display: flex;flex-flow:row nowrap;justify-content: space-around;align-items: center;align-content: center}
   .web-header>div.code-img{position: relative;height: 80px;display: inline-flex;align-items: center}
   .web-header .search-frame .search-bar{width: 100%;height: 40px;border: 2px solid #1CACA3;border-radius: 4px;}
   .web-header .code-img img, .web-header .code-img span{display: inline-block}
@@ -77,12 +77,14 @@
   >>> .el-input-group__append{background: #1daca4;border:none;color:#fff;font-size: 18px;border-radius: 0px;}
   >>> .el-input{border: none}
 
-  .nav-bar{width: 90%;height: 42px;padding: 0 5%;font-size: 1.5rem;border-bottom: 4px solid #1CACA3}
+  .nav-bar{width: 76%;height: 42px;padding: 0 12%;font-size: 1.5rem;border-bottom: 4px solid #1CACA3}
   .nav-bar span{display: inline-block;padding: 10px 2.25rem;}
   .nav-bar span:nth-child(1){display: inline-block;padding: 10px 2.25rem;background: #1CACA3;color: #efefef}
+
   .fix-content{position: fixed;right: 2.25rem; top: 16rem;z-index: 20;display: inline-flex;flex-flow: column nowrap;font-size: 10px;}
   .fix-content a{display: inline-block;margin:2px 0;padding: 5px;width:60px;height: 56px;text-align:center;background: #fff;box-shadow: 0 2px 5px 0 #444;z-index: 99}
 
   #hover-panel{position:absolute;width: 207px;height: 450px;background: #2cbca3;top: 45px;left: 0;z-index: 100;visibility: hidden}
   #hover-icon:hover #hover-panel{visibility: visible}
+
 </style>

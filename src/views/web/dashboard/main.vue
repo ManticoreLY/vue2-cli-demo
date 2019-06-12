@@ -1,6 +1,5 @@
 <template>
     <div>
-      <nav-bar/>
       <disease-item/>
       <item-bar name="出国实例"/>
       <example-item/>
@@ -15,12 +14,11 @@
 </template>
 
 <script>
-  import { ItemBar, NavBar, DiseaseItem, ExampleItem, WebNews, MedicalReport, brand, LogoDisplay } from './components'
+  import { ItemBar, DiseaseItem, ExampleItem, WebNews, MedicalReport, brand, LogoDisplay } from './components'
   export default {
     name: 'main',
     components: {
       ItemBar,
-      NavBar,
       DiseaseItem,
       ExampleItem,
       WebNews,

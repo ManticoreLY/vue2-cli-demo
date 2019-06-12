@@ -76,6 +76,7 @@ export default {
   methods: {
     search() {
       DiseaseApi.queryPage(this.query).then(data => {
+        debugger
         this.page = Object.assign(this.page, data.obj)
         this.tableList = data.obj.records
       }).catch(err => {

@@ -53,7 +53,7 @@
 </script>
 
 <style scoped>
-  .web-brand{position:relative;width: 86%;margin: 0 7%;height: auto;display: flex;flex-flow: row wrap; justify-content: flex-start}
+  .web-brand{position:relative;width: 96%;margin: 0 auto;height: auto;display: flex;flex-flow: row wrap; justify-content: flex-start}
   .web-brand .brand-item{height: 285px;width: 33%;}
   .web-brand .brand-item .title{height: 75px;font-size:3rem;text-align: center;margin: 20px;}
   .web-brand .brand-item .content{height: 200px;font-size:2rem;padding:0 15px;}

@@ -4,7 +4,7 @@
       <el-carousel indicator-position="outside">
         <el-carousel-item v-for="banner in banners" :key="banner">
           <a :href="banner.url" target="_blank">
-          <img :src="banner.img" style="width: 100%;height:auto">
+          <img :src="banner.img" style="width: 100%;height:100%">
           </a>
         </el-carousel-item>
       </el-carousel>
