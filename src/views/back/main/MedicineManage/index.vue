@@ -13,7 +13,7 @@
             <el-table :data="dataList" :default-sort="{ prop: 'index', type: 'ascending' }">
                 <el-table-column label="ID" prop="id"></el-table-column>
                 <el-table-column label="序号" prop="indexNo"></el-table-column>
-                <el-table-column label="药品名称" prop="shotName"></el-table-column>
+                <el-table-column label="药品名称" prop="name"></el-table-column>
                 <el-table-column label="简介" prop="shotIntroduct"></el-table-column>
                 <el-table-column label="药品说明" prop="string"></el-table-column>
                 <el-table-column label="单位" prop="unit"></el-table-column>

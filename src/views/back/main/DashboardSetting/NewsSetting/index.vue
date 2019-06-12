@@ -10,14 +10,9 @@
         </el-form-item>
       </el-form>
       <el-table :data="tableList">
-        <el-table-column label="链接名" prop="linkName"></el-table-column>
-        <el-table-column label="类型" :formatter="type_format"></el-table-column>
-        <el-table-column label="LOGO">
-          <template slot-scope="scope">
-            <el-image :src="scope.row.img" style="width: 300px; height: auto"></el-image>
-          </template>
-        </el-table-column>
-        <el-table-column label="链接地址" prop="linkUrl"></el-table-column>
+        <el-table-column label="ID" prop="id"></el-table-column>
+        <el-table-column label="模块名称" prop="name"></el-table-column>
+        <el-table-column label="跳转地址" prop="url"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button type="warning" @click="toEdit(scope.row)">编辑</el-button>
@@ -40,7 +35,7 @@
 </template>
 
 <script>
-  import FriendLinkApi from '@/api/HomePage/FriendLink'
+  import HomeNewsArticleApi from '@/api/HomePage/NewsArticle'
   import EditForm from './edit'
   export default {
     name: 'index',
@@ -70,7 +65,7 @@
     },
     methods: {
       search() {
-        FriendLinkApi.queryPage(this.query).then(data => {
+        HomeNewsArticleApi.queryPage(this.query).then(data => {
           this.page = Object.assign(this.page, data.obj)
           this.tableList = data.obj.records
         }).catch(err => {
@@ -90,23 +85,15 @@
       },
       toDelete(id) {
         this.$confirm('', '请确认删除?', {}).then(() => {
-          FriendLinkApi.remove(id).then(data => {
+          HomeNewsArticleApi.remove(id).then(data => {
             console.log(data)
             this.$message.success('删除成功')
+            this.search()
           }).catch(err => {
             console.log(err)
             this.$message.warning('操作失败')
           })
         })
-      },
-      type_format(row) {
-        var data = [
-          { value: 1, name: '战略合作伙伴' },
-          { value: 2, name: '媒体合作伙伴' },
-          { value: 3, name: '链接聚合' },
-          { value: 4, name: '友情链接' }
-        ]
-        return data.find(item => item.value === row.type).name
       },
       handleFormClose() {
         this.editFormVisible = false

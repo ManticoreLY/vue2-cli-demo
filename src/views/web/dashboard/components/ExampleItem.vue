@@ -22,7 +22,7 @@
 </script>
 
 <style scoped>
-  .web-content{width: 90%;margin: 0 5%;height: auto;display: flex;flex-flow:row wrap;justify-content: space-around}
+  .web-content{width: 100%;margin: 0;height: auto;display: flex;flex-flow:row wrap;justify-content: space-around}
   .web-content .example-item{position:relative;width: 22%;background: #ccc;margin-bottom: 20px;}
   .web-content .example-item>div:nth-child(1){height: 300px;width: 100%;border-bottom: 2px solid #1daca4;}
   .web-content .example-item>div:nth-child(2){height: 120px;width: 93%;padding: 5px 3%;}

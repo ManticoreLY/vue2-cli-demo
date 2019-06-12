@@ -8,15 +8,18 @@
         <canvas id="canvas" style="width: 100%;height: 2.25rem;"></canvas>
       </div>
       <div class="item3" style="width: 40%;text-align: right">
-        <span class="item-title">网站地图</span>
-        <span class="item-title">医疗客服</span>
-        <span class="item-title">海外医疗：400-0000-000</span>
-        <span class="item-title" style="border: none">邮箱：xxxx@yinuohuanqiu.com</span>
+        <router-link v-show="$route.fullPath !== '/dashboard'" to="/dashboard" class="item-title"><i class="my-icon-home" style="color: #1daca4;font-size: 1.2rem">&nbsp;医诺寰球首页</i></router-link>
+        <a class="item-title">网站地图</a>
+        <a class="item-title">医疗客服</a>
+        <a class="item-title">海外医疗：400-0000-000</a>
+        <a class="item-title" style="border: none">邮箱：xxxx@yinuohuanqiu.com</a>
       </div>
     </div>
-    <web-header></web-header>
-    <router-view></router-view>
-    <web-info></web-info>
+    <div class="web-content">
+      <web-header></web-header>
+      <router-view></router-view>
+      <web-info></web-info>
+    </div>
     <footer>
       <div class="footer">
         <div>医诺寰宇是出国看病的领导者，国内专业赴印度治疗丙肝、乙肝的团队。印度丙肝新药<b>索非布韦</b>、达卡他韦、<b>吉二代</b>，
@@ -26,7 +29,7 @@
         <div>Copyright&nbsp;&copy;&nbsp;2015-2019&nbsp;医诺寰球-青岛医诺寰球有限公司&nbsp;&nbsp;版权所有 | 鲁ICP备15022986号-1</div>
       </div>
     </footer>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -55,6 +58,7 @@
   /*color:#1CACA3*/
   #web-index{margin: 0;padding: 0;}
   .web-title{position: relative;width:100%;height: 2.75rem;background: #f5f5f5;border-bottom: 1px solid #eee;display:inline-flex;flex-flow: row nowrap;align-items: center}
+  .web-content{position: relative;width: 76%; margin: 0 12%;}
   .web-title .item1, .web-title .item2, .web-title .item3{display: inline-block}
   .web-title .item1 .text-icon{display: inline-block;position:relative;font-size: 1rem;font-weight: 600;color: #efefef;background: #1CACA3;color: #ececec;padding: 4px 12px;border-radius: 3px;}
   .web-title .item1 .text-icon .arrow-right{position:absolute;top:8px;right: -10px;height: 0;width: 0;border-width: 5px;border-style: solid;border-color: transparent transparent transparent #1CACA3}
@@ -62,7 +66,7 @@
   .web-title .item3 .item-title{display: inline-flex;position:relative;border-right:1px solid #545454;padding: 0 6px;}
   .web-title .item3 .item-title .arrow-down{position:absolute;top: 5px;right: -10px;height: 0;width: 0;border-width: 5px;border-style: solid;border-color: #545454 transparent transparent transparent}
 
-  .footer{background: #f5f5f5;border-top: 1px solid #eee;width: 90%;height: 100px;padding: 0 5%;text-align: center;font-size: .75rem;color: #545454;text-space: 5px;
+  .footer{background: #f5f5f5;border-top: 1px solid #eee;width: 80%;height: 100px;padding: 0 10%;text-align: center;font-size: .75rem;color: #545454;text-space: 5px;
    display: flex; flex-flow: row wrap; align-content: center; align-items: center;justify-content: space-around}
   .footer div{line-height: 28px}
 </style>
