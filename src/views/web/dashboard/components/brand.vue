@@ -1,17 +1,21 @@
 <template>
   <div class="web-brand">
     <div v-for="(item, index) in data" :key="index" :class="classSeries(index)">
-      <div class="title"><i class="el-icon-bell">&nbsp;&nbsp;{{ item.title }}</i></div>
+      <div class="title"><img :src="item.url" width="20" height="20">&nbsp;&nbsp;{{ item.title }}</div>
       <div class="content">{{ item.content }}</div>
     </div>
   </div>
 </template>
 
 <script>
+  import BrandApi from '@/api/HomePage/brand'
   export default {
     name: 'brand',
     data() {
       return {
+        query: {
+          pageObj: { current: 1, size: 10 }
+        },
         data: [
           { title: '中科院博士团队', content: '中科院博士团队组成，多年的临床科研经验。专业性强。' },
           { title: '一流医院官方合作', content: '与印度、泰国、香港、美国、新加坡、英国的一流医院授权合作，综合实力在对应国家前列。' },
@@ -25,7 +29,17 @@
         ]
       }
     },
+    mounted() {
+      this.init()
+    },
     methods: {
+      init() {
+        BrandApi.queryPage(this.page).then(data => {
+          this.date = data
+        }).catch(err => {
+          console.log(err)
+        })
+      },
       classSeries(item) {
         if (item % 2 === 0) {
           return 'brand-item normal'

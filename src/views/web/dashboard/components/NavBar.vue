@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import home from '@/api/HomePage/home'
+  const home = () => import('@/api/HomePage/home')
   export default {
     name: 'NavBar',
     data() {

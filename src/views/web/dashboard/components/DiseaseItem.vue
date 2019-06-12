@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import home from '@/api/HomePage/home'
+  // import home from '@/api/HomePage/home'
   export default {
     name: 'DiseaseItem',
     data() {
@@ -35,11 +35,6 @@
           { name: '更多', description: '更多', url: 'static/icon/icon-10.png' }
         ]
       }
-    },
-    created() {
-      home.diseaseColumn().then(data => {
-        this.diseaseItems = data
-      })
     }
   }
 </script>

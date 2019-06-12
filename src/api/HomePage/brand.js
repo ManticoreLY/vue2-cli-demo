@@ -1,5 +1,6 @@
-import crud from '../crud'
+// import crud from '../crud'
 
 export default {
-  ...crud('api/brand/brand')
+  // ...crud('api/home/homeBrandConfig')
 }
+

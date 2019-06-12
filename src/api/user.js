@@ -1,7 +1,6 @@
 import crud from './crud'
 import request from './json-request'
-
-export default {
+const user = {
   ...crud('api/users'),
   login(user) {
     return request({
@@ -18,3 +17,6 @@ export default {
     })
   }
 }
+
+export default user
+

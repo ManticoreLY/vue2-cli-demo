@@ -17,7 +17,9 @@
     </div>
     <div class="web-content">
       <web-header></web-header>
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
       <web-info></web-info>
     </div>
     <footer>

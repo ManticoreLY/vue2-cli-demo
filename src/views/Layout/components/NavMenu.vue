@@ -23,7 +23,7 @@
 
 <script>
     // import { mapGetters } from 'vuex'
-    import { asyncRouterMap } from '@/router'
+    import yinuo from '@/router/yinuo'
 
     export default {
       name: 'NavMenu',
@@ -32,7 +32,7 @@
       },
       computed: {
         menus() {
-          return asyncRouterMap
+          return yinuo
         }
       },
       methods: {

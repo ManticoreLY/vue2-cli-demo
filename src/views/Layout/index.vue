@@ -9,9 +9,7 @@
 </template>
 
 <script>
-  import NavMenu from './components/NavMenu'
-  import MainContent from './components/MainContent'
-  import NavBar from './components/NavBar'
+  import { NavMenu, MainContent, NavBar } from './components'
   export default {
     name: 'index',
     components: { NavMenu, MainContent, NavBar }

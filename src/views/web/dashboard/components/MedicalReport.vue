@@ -3,10 +3,10 @@
     <div v-for="item in 3" :key="item" class="news-module">
       <div class="module-name">医疗公告</div>
       <div class="module-cont">
-        <div style="width: 40%"><img width="160" height="160"></div>
+        <div style="width: 40%"><el-image src="" style="width: 160px;height: 160px"/></div>
         <div style="width: 56%">
-          <p class="ellipsis" style="font-size:2rem;color:#1daca4;height: 40px;">杨博士出席人工智能大会</p>
-          <p style="font-size: 1.5rem;color:#7f7f7f;text-indent: 3rem;width:190px;height: 100px;word-wrap: break-word">1月12日，南京大学人工智能生物医疗技术研究院落地江北地区签约仪式在汉府饭店举行<a>【详情】</a></p>
+          <p style="font-size:1.75rem;color:#1daca4;height: 4.25rem;overflow: hidden;text-overflow:ellipsis">杨博士出席人工智能大会人工智能大会被杨博士出席</p>
+          <p style="font-size: 1.5rem;color:#7f7f7f;text-indent: 2rem;height: 100%;width: 100%;overflow: hidden">1月12日，南京大学人工智能生物医疗技术研究院落地江北地区签约仪式在汉府饭店举行<em>【详情】</em></p>
         </div>
       </div>
       <div class="module-title">
@@ -28,7 +28,7 @@
 
 <style scoped>
   .ellipsis{white-space:nowrap;overflow: hidden;text-overflow: ellipsis}
-  .web-news{width: 90%;margin: 0 5%;height: auto;display: flex;flex-flow:row wrap;justify-content: space-between}
+  .web-news{height: auto;display: flex;flex-flow:row wrap;justify-content: space-between}
   .web-news .news-module{position:relative;display: inline-block;width: 31%;margin-bottom: 20px;border-right: 1px solid #ccc}
   .web-news .news-module:last-child{border:none}
   .web-news .news-module .module-name{font-size: 2.25rem;height: 36px}
