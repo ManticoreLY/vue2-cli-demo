@@ -14,7 +14,7 @@
 
 <script>
   import HomeNewsReportApi from '@/api/HomePage/NewsReport'
-  import ArticleApi from '@/api/Articles'
+  import ArticleApi from '@/api/articles'
   export default {
     name: 'edit',
     data() {
@@ -30,7 +30,7 @@
             current: 1,
             size: 10
           },
-          likeCondition:{
+          likeCondition: {
             name: ''
           }
         },

@@ -8,6 +8,7 @@
         <canvas id="canvas" style="width: 100%;height: 2.25rem;"></canvas>
       </div>
       <div class="item3" style="width: 40%;text-align: right">
+        <router-link v-show="$route.fullPath !== '/dashboard'" to="/dashboard" class="item-title"><i class="my-icon-home" style="color: #1daca4;font-size: 1.2rem">&nbsp;医诺寰球首页</i></router-link>
         <a class="item-title">网站地图</a>
         <a class="item-title">医疗客服</a>
         <a class="item-title">海外医疗：400-0000-000</a>
