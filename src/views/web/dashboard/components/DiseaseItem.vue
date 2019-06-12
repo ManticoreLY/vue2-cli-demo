@@ -3,7 +3,7 @@
     <div class="item-name">疾病专栏</div>
     <div class="items">
       <div class="child">
-        <a v-for="item in disease_icons" :key="item">
+        <a v-for="item in diseaseItems" :key="item">
           <div style="width: 80px;text-align: center"><img :src="item.url" style="height: 60px;width: 60px;"></div>
           <div style="width: 150px;display: inline-block;text-align: center">
             <span style="display:inline-block;font-size:1.75rem;padding: 5px;border-bottom: 1px solid mediumspringgreen">{{ item.name }}</span><br/>
@@ -16,10 +16,12 @@
 </template>
 
 <script>
+  import home from '@/api/HomePage/home'
   export default {
     name: 'DiseaseItem',
     data() {
       return {
+        diseaseItems: [],
         disease_icons: [
           { name: '丙肝', description: '吉三代 索非布韦', url: 'static/icon/icon-1.png' },
           { name: '乙肝', description: 'TAF', url: 'static/icon/icon-2.png' },
@@ -33,6 +35,11 @@
           { name: '更多', description: '更多', url: 'static/icon/icon-10.png' }
         ]
       }
+    },
+    created() {
+      home.diseaseColumn().then(data => {
+        this.diseaseItems = data
+      })
     }
   }
 </script>
