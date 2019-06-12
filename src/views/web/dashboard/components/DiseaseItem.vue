@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import home from '@/api/HomePage/home'
+  import home from '@/api/Homepage/home'
   export default {
     name: 'DiseaseItem',
     data() {
@@ -38,7 +38,7 @@
     },
     created() {
       home.diseaseColumn().then(data => {
-        this.diseaseItems = data
+        this.diseaseItems = data.obj
       })
     }
   }

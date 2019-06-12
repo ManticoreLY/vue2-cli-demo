@@ -3,7 +3,7 @@
     <div class="nav-images">
       <el-carousel indicator-position="outside">
         <el-carousel-item v-for="banner in banners" :key="banner">
-          <a href="banner.url">
+          <a :href="banner.url" target="_blank">
           <img :src="banner.img" style="width: 100%;height:auto">
           </a>
         </el-carousel-item>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import home from '@/api/HomePage/home'
+  import home from '@/api/Homepage/home'
   export default {
     name: 'NavBar',
     data() {
@@ -27,7 +27,7 @@
     },
     created() {
       home.banners().then(data => {
-        this.banners = data
+        this.banners = data.obj
       })
     }
   }

@@ -1,17 +1,19 @@
 <template>
   <div class="web-brand">
-    <div v-for="(item, index) in data" :key="index" :class="classSeries(index)">
-      <div class="title"><i class="el-icon-bell">&nbsp;&nbsp;{{ item.title }}</i></div>
+    <div v-for="(item, index) in brands" :key="index" :class="classSeries(index)">
+      <div class="title"><i class="el-icon-bell" >&nbsp;&nbsp;{{ item.title }}</i></div>
       <div class="content">{{ item.content }}</div>
     </div>
   </div>
 </template>
 
 <script>
+  import home from '@/api/Homepage/home'
   export default {
     name: 'brand',
     data() {
       return {
+        brands: [],
         data: [
           { title: '中科院博士团队', content: '中科院博士团队组成，多年的临床科研经验。专业性强。' },
           { title: '一流医院官方合作', content: '与印度、泰国、香港、美国、新加坡、英国的一流医院授权合作，综合实力在对应国家前列。' },
@@ -41,6 +43,11 @@
           }
         }
       }
+    },
+    created() {
+      home.brands().then(data => {
+        this.brands = data.obj
+      })
     }
   }
 </script>

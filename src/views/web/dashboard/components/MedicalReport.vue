@@ -1,28 +1,41 @@
 <template>
   <div class="web-news">
-    <div v-for="item in 3" :key="item" class="news-module">
-      <div class="module-name">医疗公告</div>
-      <div class="module-cont">
-        <div style="width: 40%"><img width="160" height="160"></div>
+    <div v-for="item in medicalNewsVo.typeVos" :key="item" class="news-module">
+      <div class="module-name">{{item.name}}</div>
+      <template v-for="(vo,index) in item.newsArticles">
+
+      <div class="module-cont" v-if="index==0">
+        <div style="width: 40%"><img :src="vo.abstractImg"width="160" height="160"></div>
         <div style="width: 56%">
-          <p class="ellipsis" style="font-size:2rem;color:#1daca4;height: 40px;">杨博士出席人工智能大会</p>
-          <p style="font-size: 1.5rem;color:#7f7f7f;text-indent: 3rem;width:190px;height: 100px;word-wrap: break-word">1月12日，南京大学人工智能生物医疗技术研究院落地江北地区签约仪式在汉府饭店举行<a>【详情】</a></p>
+          <p class="ellipsis" style="font-size:2rem;color:#1daca4;height: 40px;">{{vo.title}}</p>
+          <p style="font-size: 1.5rem;color:#7f7f7f;text-indent: 3rem;width:190px;height: 100px;word-wrap: break-word">{{vo.abstractText}}<a>【详情】</a></p>
         </div>
       </div>
       <div class="module-title">
-        <div v-for="k in 6" :key="k" style="margin-top:10px;">
-          <span class="ellipsis" style="font-size: 1.25rem;color:#7f7f7f">XXXXXXXXXXXXXX</span>
+          <span class="ellipsis" style="font-size: 1.25rem;color:#7f7f7f">{{vo.abstractText}}</span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span>2019-05-01</span>
-        </div>
+          <span>{{vo.createdDt}}</span>
       </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
+  import home from '@/api/Homepage/home'
   export default {
-    name: 'MedicalReport'
+    name: 'MedicalReport',
+    data() {
+      return {
+        medicalNewsVo: {}
+      }
+    },
+    created() {
+      home.medicalNews().then(data => {
+        debugger
+        this.medicalNewsVo = data.obj
+      })
+    }
   }
 </script>
 
