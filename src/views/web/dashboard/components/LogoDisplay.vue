@@ -2,23 +2,23 @@
   <div class="many-logo">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="战略合作伙伴" name="first">
-        <div v-for="logo in logo_images" class="logo-pane">
-          <img :src="'static/logo/' + logo" :key="logo" style="width: 100%">
+        <div v-for="item in friendLinkVo.strategyCompanies" class="logo-pane">
+          <img :src="item.img" :key="item" style="width: 100%">
         </div>
       </el-tab-pane>
       <el-tab-pane label="媒体合作" name="second">
-        <div v-for="logo in logo_medias" class="logo-pane">
-          <img :src="'static/logo/' + logo" :key="logo" height="75" width="275">
+        <div v-for="item in friendLinkVo.mediaCompanies" class="logo-pane">
+          <img :src="item.img" :key="item"  height="75" width="275">
         </div>
       </el-tab-pane>
       <el-tab-pane label="链接聚合" name="third">
-        <div v-for="logo in logo_links" class="logo-pane">
-          <img :src="'static/logo/' + logo" :key="logo" height="75" width="275">
+        <div v-for="item in friendLinkVo.linksAggregations" class="logo-pane">
+          <a :href="item.linkUrl" :key="item" height="75" width="275">{{item.linkName}}</a>
         </div>
       </el-tab-pane>
       <el-tab-pane label="友情链接" name="fourth">
-        <div v-for="logo in logo_friends" class="logo-pane">
-          <img :src="'static/logo/' + logo" :key="logo" height="75" width="275">
+        <div v-for="item in friendLinkVo.friendLinks" class="logo-pane">
+          <a :href="item.linkUrl" :key="item" height="75" width="275">{{item.linkName}}</a>
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -26,11 +26,13 @@
 </template>
 
 <script>
+  import home from '@/api/Homepage/home'
   export default {
     name: 'LogoDisplay',
     data() {
       return {
         activeName: 'first',
+        friendLinkVo: {},
         logo_images: [
           '中国新闻网.jpg', '中国江苏网.jpg', '中国青年报.jpg', '今日头条.jpg', '凤凰.png', '参考消息.jpg',
           '山东大学报.jpg', '搜狐.jpg', '腾讯.png', '新浪.png', '环球.png', '网易.png', '界面.png', '搜狗搜索.png', '百度.png'
@@ -47,6 +49,11 @@
           '1-1F32G44216226.jpg', '1-1P1030915140-L.png', '1-1P1152206190-L.png'
         ]
       }
+    },
+    created() {
+      home.friendLinks().then(data => {
+        this.friendLinkVo = data.obj
+      })
     }
   }
 </script>

@@ -42,8 +42,8 @@ export default {
       method: 'GET'
     })
   },
-  footerInfo() {
-    const url = '/front/home/footerInfo'
+  footer() {
+    const url = '/front/home/footer'
     return request({
       url,
       method: 'GET'
