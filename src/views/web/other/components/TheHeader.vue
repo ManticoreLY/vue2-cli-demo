@@ -37,9 +37,9 @@
       </span>
       </div>
       <div class="web-header">
-        <div class="web-logo" style="margin-left:5%;width: 15%">
+        <div class="web-logo" style="margin-left:5%;width: 12%">
           <router-link :to="{ path: '/dashboard'}">
-            <img src="static/img/医诺寰球横版logo.png" style="height: 60%;width: 100%"/>
+            <img src="static/img/医诺寰球横版logo.png" style="height: 60px;width: auto"/>
           </router-link>
         </div>
         <div class="search-frame" style="width: 50%;margin-left: 30px;">
