@@ -6,8 +6,8 @@ var OSS = require('ali-oss')
 var client = new OSS({
   region: 'oss-cn-shenzhen',
   bucket: 'yinuo-web',
-  accessKeyId: 'LTAIlaiCnL1tQLzt',
-  accessKeySecret: 'rr8XcGNc6Oeokn5THSFDWfpRUbvaXJ'
+  accessKeyId: '', // 'ltaiLAIcNl1TqlZT1',
+  accessKeySecret: '' // 'RR8xCgnC6oEOKN5thsfdwFPruBVAxj2'
 })
 
 var ali_oss = {
